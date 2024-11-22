@@ -48,7 +48,7 @@ const Navbar = () => {
             class="navbar-brand position-relative z-1 ms-4 ms-sm-5 ms-lg-4 me-2 me-sm-0 me-lg-3 px-5"
             href="/"
           >
-            Abhishek Industries and Exports
+            Neeraj Industries and Exports
           </a>
 
           {/* <!-- Main navigation that turns into offcanvas on screens < 992px wide (lg breakpoint) --> */}
@@ -60,7 +60,7 @@ const Navbar = () => {
           >
             <div class="offcanvas-header py-3">
               <h5 class="offcanvas-title" id="navbarNavLabel">
-                Abhishek Industries and Exports
+                Neeraj Industries and Exports
               </h5>
               <button
                 type="button"
