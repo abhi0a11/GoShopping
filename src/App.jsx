@@ -43,6 +43,7 @@ function App() {
       <Router>
         <Routes>
           <Route
+            exact
             path="/"
             element={
               <>
@@ -52,21 +53,13 @@ function App() {
                 <Products department={"Electronnics"}></Products>
                 <Products department={"Kitchen Appliances"}></Products>
                 <Products department={"Decoration"}></Products>
-
                 <Footer></Footer>
               </>
             }
           />
-          <Route
-            path="/login"
-            element={
-              <>
-                <Login></Login>
-              </>
-            }
-          />
-          <Route path="/register" element={<Register></Register>} />
-          <Route path="/admin" element={<Admin></Admin>} />
+          <Route exact path="/login" element={<Login></Login>} />
+          <Route exact path="/register" element={<Register></Register>} />
+          <Route exact path="/admin" element={<Admin></Admin>} />
         </Routes>
         <Toaster></Toaster>
       </Router>
