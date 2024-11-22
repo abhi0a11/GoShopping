@@ -3,6 +3,8 @@ import { Context, server } from "../main";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { Navigate } from "react-router-dom";
+import { Link } from "react-scroll";
+import { FaShoppingCart } from "react-icons/fa";
 const Navbar = () => {
   const { isAuthenticated, setIsAuthenticated, loading, setLoading } =
     useContext(Context);
@@ -25,27 +27,27 @@ const Navbar = () => {
   return (
     <>
       <header
-        class="navbar-sticky sticky-top container z-fixed px-2 my-3"
+        className="navbar-sticky sticky-top container z-fixed px-2 my-3"
         data-sticky-element=""
       >
-        <div class="navbar navbar-expand-lg flex-nowrap bg-body rounded-pill shadow ps-0 mx-1">
-          <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark rounded-pill z-0 d-none d-block-dark"></div>
+        <div className="navbar navbar-expand-lg flex-nowrap bg-body rounded-pill shadow ps-0 mx-1">
+          <div className="position-absolute top-0 start-0 w-100 h-100 bg-dark rounded-pill z-0 d-none d-block-dark"></div>
 
           {/* <!-- Mobile offcanvas menu toggler (Hamburger) --> */}
           <button
             type="button"
-            class="navbar-toggler ms-3"
+            className="navbar-toggler ms-3"
             data-bs-toggle="offcanvas"
             data-bs-target="#navbarNav"
             aria-controls="navbarNav"
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon"></span>
           </button>
 
           {/* <!-- Navbar brand (Logo) --> */}
           <a
-            class="navbar-brand position-relative z-1 ms-4 ms-sm-5 ms-lg-4 me-2 me-sm-0 me-lg-3 px-5"
+            className="navbar-brand position-relative z-1 ms-4 ms-sm-5 ms-lg-4 me-2 me-sm-0 me-lg-3 px-5"
             href="/"
           >
             Neeraj Industries and Exports
@@ -53,103 +55,114 @@ const Navbar = () => {
 
           {/* <!-- Main navigation that turns into offcanvas on screens < 992px wide (lg breakpoint) --> */}
           <nav
-            class="offcanvas offcanvas-start"
+            className="offcanvas offcanvas-start"
             id="navbarNav"
-            tabindex="-1"
+            tabIndex="-1"
             aria-labelledby="navbarNavLabel"
           >
-            <div class="offcanvas-header py-3">
-              <h5 class="offcanvas-title" id="navbarNavLabel">
+            <div className="offcanvas-header py-3">
+              <h5 className="offcanvas-title" id="navbarNavLabel">
                 Neeraj Industries and Exports
               </h5>
               <button
                 type="button"
-                class="btn-close"
+                className="btn-close"
                 data-bs-dismiss="offcanvas"
                 aria-label="Close"
               ></button>
             </div>
-            <div class="offcanvas-body pt-3 pb-4 py-lg-0 mx-lg-auto">
-              <ul class="navbar-nav position-relative">
-                <li class="nav-item me-lg-n1 me-xl-0">
-                  <a
-                    class="nav-link fs-sm active"
-                    aria-current="page"
-                    href="/"
-                    role="button"
-                    data-bs-trigger="hover"
-                    aria-expanded="false"
-                  >
-                    Home Interior
-                  </a>
-                </li>
-                <li class="nav-item  position-static me-lg-n1 me-xl-0">
-                  <a
-                    class="nav-link  fs-sm"
-                    href="/"
+            <div className="offcanvas-body pt-3 pb-4 py-lg-0 mx-lg-auto">
+              <ul className="navbar-nav position-relative">
+                <li className="nav-item me-lg-n1 me-xl-0">
+                  <Link
+                    className="nav-link fs-sm"
+                    to="furniture"
                     role="button"
                     data-bs-toggle="dropdown"
                     data-bs-trigger="hover"
+                    smooth={true}
+                    offset={-150}
+                    duration={100}
                     aria-expanded="false"
                   >
                     Furniture
-                  </a>
+                  </Link>
                 </li>
-                <li class="nav-item me-lg-n1 me-xl-0">
-                  <a
-                    class="nav-link fs-sm"
-                    href="/"
+
+                <li className="nav-item me-lg-n1 me-xl-0">
+                  <Link
+                    className="nav-link fs-sm"
+                    aria-current="page"
                     role="button"
-                    data-bs-toggle="dropdown"
                     data-bs-trigger="hover"
-                    data-bs-auto-close="outside"
                     aria-expanded="false"
+                    to="electronics"
+                    smooth={true}
+                    offset={-150}
+                    duration={100}
                   >
                     Electronics
-                  </a>
+                  </Link>
                 </li>
-                <li class="nav-item dropdown me-lg-n1 me-xl-0">
-                  <a
-                    class="nav-link  fs-sm"
-                    href="/"
+                <li className="nav-item me-lg-n1 me-xl-0">
+                  <Link
+                    to="KitchenAppliances"
+                    className="nav-link fs-sm"
                     role="button"
                     data-bs-toggle="dropdown"
                     data-bs-trigger="hover"
                     data-bs-auto-close="outside"
                     aria-expanded="false"
+                    smooth={true}
+                    offset={-150}
+                    duration={100}
                   >
-                    Export
-                  </a>
+                    Kitchen Appliances
+                  </Link>
                 </li>
-                <li class="nav-item me-lg-n2 me-xl-0">
+                <li className="nav-item me-lg-n1 me-xl-0">
+                  <Link
+                    to="Decoration"
+                    className="nav-link fs-sm"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    data-bs-trigger="hover"
+                    data-bs-auto-close="outside"
+                    aria-expanded="false"
+                    smooth={true}
+                    offset={-150}
+                    duration={100}
+                  >
+                    Decoration
+                  </Link>
+                </li>
+                <li className="nav-item me-lg-n2 me-xl-0">
                   {/* <!-- Button group --> */}
-                  <div class="d-flex gap-sm-1 position-relative z-1">
+                  <div className="d-flex gap-sm-1 position-relative z-1">
                     {/* <!-- Cart button --> */}
                     <button
                       type="button"
-                      class="btn btn-icon fs-lg btn-outline-secondary border-0 rounded-circle animate-scale me-2"
+                      className="btn btn-icon fs-lg btn-outline-secondary border-0 rounded-circle animate-scale me-2"
                       data-bs-toggle="offcanvas"
                       data-bs-target="#shoppingCart"
                       aria-controls="shoppingCart"
                       aria-label="Shopping cart"
                     >
-                      <i class="ci-shopping-cart animate-target">
-                        shopping cart
-                      </i>
+                      <FaShoppingCart />
                     </button>
                   </div>
                 </li>
-                <li class="nav-item me-lg-n2 me-xl-0">
+                <li className="nav-item me-lg-n2 me-xl-0">
                   {isAuthenticated ? (
                     <button
                       type="button"
                       onClick={logoutHandler}
-                      class="nav-link fs-sm"
+                      className="nav-link fs-sm"
                     >
                       Logout
                     </button>
                   ) : (
-                    <a class="nav-link fs-sm" href="/login">
+                    <a className="nav-link fs-sm" href="/login">
                       Login
                     </a>
                   )}
@@ -160,13 +173,13 @@ const Navbar = () => {
         </div>
       </header>
 
-      {/* <nav class="navbar navbar-expand-lg bg-body-tertiary ">
-        <div class="container-fluid d-flex justify-center">
-          <a class="navbar-brand" href="#">
+      {/* <nav className="navbar navbar-expand-lg bg-body-tertiary ">
+        <div className="container-fluid d-flex justify-center">
+          <a className="navbar-brand" href="#">
             NEERAJ INDUSTRIES & EXPORT
           </a>
           <button
-            class="navbar-toggler"
+            className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarNavAltMarkup"
@@ -174,28 +187,28 @@ const Navbar = () => {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon"></span>
           </button>
           <div
-            class="collapse navbar-collapse justify-content-center"
+            className="collapse navbar-collapse justify-content-center"
             id="navbarNavAltMarkup"
           >
-            <div class={`navbar-nav ${styles.text}`}> */}
+            <div className={`navbar-nav ${styles.text}`}> */}
       {/*  */}
-      {/* <a class={`nav-link active `} aria-current="page" href="#">
+      {/* <a className={`nav-link active `} aria-current="page" href="#">
               Home
             </a> */}
       {/*  */}
-      {/* <a class={`nav-link active `} aria-current="page" href="#">
+      {/* <a className={`nav-link active `} aria-current="page" href="#">
                 Home Interior
               </a>
-              <a class="nav-link" href="#Furniture">
+              <a className="nav-link" href="#Furniture">
                 Furniture
               </a>
-              <a class="nav-link" href="#">
+              <a className="nav-link" href="#">
                 Electronics
               </a>
-              <a class="nav-link " href="#">
+              <a className="nav-link " href="#">
                 Exports
               </a>
             </div>

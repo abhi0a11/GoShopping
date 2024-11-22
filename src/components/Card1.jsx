@@ -1,14 +1,14 @@
 import React from "react";
 import "./products.css";
 
-const Card = ({ entry }) => {
+const Card1 = ({ pic }) => {
   return (
     <>
       <div className="card d-inline-block">
-        <img src={entry.images[0]} className="card-img-top" alt="..." />
+        <img src={pic} className="card-img-top" alt="..." />
         <div className="card-body">
-          <h5 className="card-title">{entry.title}</h5>
-          <p className="card-text">{Math.round(entry.price * 40)} rs</p>
+          <h5 className="card-title">Sofa </h5>
+          <p className="card-text">12000 rs</p>
           <a href="#" className="btn btn-primary">
             Purchase
           </a>
@@ -18,4 +18,4 @@ const Card = ({ entry }) => {
   );
 };
 
-export default Card;
+export default Card1;

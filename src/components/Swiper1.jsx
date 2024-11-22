@@ -1,7 +1,10 @@
 import React, { useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-
+import sofa2 from "../assets/sofa_single.png";
+import sofa3 from "../assets/single_sofa.png";
+import sofa4 from "../assets/sofa_blue.png";
+import bed from "../assets/bed.png";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/effect-coverflow";
@@ -27,21 +30,22 @@ const Swiper1 = () => {
           modifier: 1,
           slideShadows: true,
         }}
+        loop={true}
         pagination={true}
         modules={[EffectCoverflow, Pagination]}
         className="mySwiper"
       >
         <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+          <img src={bed} />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
+          <img src={sofa2} />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
+          <img src={sofa3} />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
+          <img src={sofa4} />
         </SwiperSlide>
         <SwiperSlide>
           <img src="https://swiperjs.com/demos/images/nature-5.jpg" />

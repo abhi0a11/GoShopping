@@ -5,8 +5,8 @@ import "slick-carousel/slick/slick-theme.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import App from "./App.jsx";
 
-// export const server = "http://localhost:3000";
-export const server = "https://neeraj-industries-be.onrender.com";
+export const server = "http://localhost:3005";
+// export const server = "https://neeraj-industries-be.onrender.com";
 
 export const Context = createContext({
   isAuthenticated: false,

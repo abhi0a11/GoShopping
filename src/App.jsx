@@ -2,7 +2,6 @@ import { useContext, useEffect, useState } from "react";
 import "./App.css";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
-import Products from "./components/Products";
 import Services from "./components/Services";
 import Swiper1 from "./components/Swiper1";
 import axios from "axios";
@@ -13,6 +12,15 @@ import Register from "./pages/Register";
 import { Toaster } from "react-hot-toast";
 import { Context, server } from "./main";
 import Admin from "./pages/Admin";
+import Electronics from "./components/Electronics";
+import Decoration from "./components/Decoration";
+import KitchenAppliances from "./components/KitchenAppliances";
+import Furniture from "./components/Furniture";
+
+import AllProducsFurniture from "./pages/AllProducsFurniture";
+import AllProducsElectronics from "./pages/AllProducsElectronics";
+import AllProducsDecoration from "./pages/AllProducsDecoration";
+import AllProducsKitchen from "./pages/AllProducsKitchen";
 
 function App() {
   const { setIsAuthenticated, setUser, setLoading, setRole } =
@@ -48,11 +56,11 @@ function App() {
             element={
               <>
                 <Services></Services>
-                <Swiper1></Swiper1>
-                <Products department={"Furniture"}></Products>
-                <Products department={"Electronnics"}></Products>
-                <Products department={"Kitchen Appliances"}></Products>
-                <Products department={"Decoration"}></Products>
+                {/* <Swiper1></Swiper1> */}
+                <Furniture></Furniture>
+                {/* <Electronics></Electronics> */}
+                <KitchenAppliances></KitchenAppliances>
+                <Decoration></Decoration>
                 <Footer></Footer>
               </>
             }
@@ -60,6 +68,26 @@ function App() {
           <Route exact path="/login" element={<Login></Login>} />
           <Route exact path="/register" element={<Register></Register>} />
           <Route exact path="/admin" element={<Admin></Admin>} />
+          <Route
+            exact
+            path="/allProductsFurniture"
+            element={<AllProducsFurniture />}
+          />
+          <Route
+            exact
+            path="/allProductsElectronics"
+            element={<AllProducsElectronics></AllProducsElectronics>}
+          />
+          <Route
+            exact
+            path="/allProductsDecoration"
+            element={<AllProducsDecoration></AllProducsDecoration>}
+          />
+          <Route
+            exact
+            path="/allProductsKitchen"
+            element={<AllProducsKitchen></AllProducsKitchen>}
+          />
         </Routes>
         <Toaster></Toaster>
       </Router>
