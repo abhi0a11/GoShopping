@@ -11,77 +11,32 @@ const Services = () => {
   return (
     <>
       <div
-        class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-body-tertiary bg-color-primary d-flex"
-        style={{ height: "100dvh", marginLeft: "30px" }}
+        class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-body-tertiary bg-color-primary d-flex rounded-5"
+        style={{ marginLeft: "30px" }}
       >
         <div class=" p-lg-5 mx-auto my-5">
           <h1 class={`display-3 fw-bold ${styles.text}`}>
-            NEERAJ <br /> INDUSTRIES & EXPORT
+            {/* NEERAJ <br /> INDUSTRIES & EXPORT */}
+            Best Selling products display
           </h1>
-          <h3 class="fw-normal text-muted mb-3 bg-color-primary">
+          {/* <h3 class="fw-normal text-muted mb-3 bg-color-primary">
             Build anything you want with Trust since 2023.
-          </h3>
+          </h3> */}
           <div
             class="d-flex gap-3 justify-content-center fw-bold my-5"
             style={{ fontSize: "5rem" }}
           >
-            {/* <a class="icon-link" href="#">
-              Learn more
-              <svg class="bi">
-                <use xlink:href="#chevron-right"></use>
-              </svg>
-            </a>
-            <a class="icon-link" href="#">
-              <svg class="bi">
-                <use xlink:href="#chevron-right"></use>
-              </svg>
-            </a> */}
             <TypedJs />
           </div>
         </div>
-        {/* <div class="product-device shadow-sm d-none d-md-block">
-          <img src={sofa} alt="" />
-        </div> */}
-        {/* <div class="product-device shadow-sm d-none d-md-block">
-          <img src={sofa} alt="" />
-        </div> */}
-        {/* <div class="product-device product-device-2 shadow-sm d-none d-md-block">/</div> */}
-        {/* <Spline scene="https://prod.spline.design/nVgMnfjmxNQl1G0J/scene.splinecode" /> */}
-        <div>
-          <marquee
-            behavior="scroll"
-            direction="up"
-            scrollamount="6"
-            width="250px"
-            scrolldelay="6"
-          >
-            <img src={sofa} className={`${styles.image}`} />
-            <img src={sofa2} className={`${styles.image}`} />
-            <img src={sofa3} className={`${styles.image}`} />
-            <img src={sofa4} className={`${styles.image}`} />
-            <img src={bed} className={`${styles.image}`} />
-          </marquee>
-          <marquee
-            behavior="scroll"
-            direction="down"
-            scrollamount="6"
-            width="250px"
-            scrolldelay="6"
-          >
-            <img src={sofa} className={`${styles.image}`} />
-            <img src={sofa2} className={`${styles.image}`} />
-            <img src={sofa3} className={`${styles.image}`} />
-            <img src={sofa4} className={`${styles.image}`} />
-            <img src={bed} className={`${styles.image}`} />
-          </marquee>
-        </div>
       </div>
-      <div style={{ margin: "50px 0px" }}>
+      {/* <div style={{ margin: "50px 0px" }}>
         <Slick dir={false} />
       </div>
       <div style={{ margin: "0px 0px 25px 0px" }}>
         <Slick dir={true} />
-      </div>
+      </div> */}
+
       {/* <marquee
         behavior="scroll"
         direction="left"
@@ -148,7 +103,7 @@ const Services = () => {
         </div>
       </div> */}
 
-      <div class="container my-5 bg-color-primary " id="Furniture">
+      {/* <div class="container my-5 bg-color-primary " id="Furniture">
         <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
           <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
             <h1 class="display-4 fw-bold lh-1 text-body-emphasis">
@@ -197,8 +152,8 @@ const Services = () => {
             </div>
           </div>
         </div>
-      </div>
-      <div class="container my-5 bg-color-primary">
+      </div> */}
+      {/* <div class="container my-5 bg-color-primary">
         <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
           <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
             <h1 class="display-4 fw-bold lh-1 text-body-emphasis">
@@ -223,8 +178,8 @@ const Services = () => {
             <img class="rounded-lg-3" src={sofa} alt="" width="720" />
           </div>
         </div>
-      </div>
-      <div class="container my-5 bg-color-primary">
+      </div> */}
+      {/* <div class="container my-5 bg-color-primary">
         <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
           <div class="col-lg-4 m-0 p-0 overflow-hidden shadow-lg">
             <img class="rounded-lg-3" src={sofa} alt="" width="720" />
@@ -247,7 +202,7 @@ const Services = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
       {/* <div class="container my-5 bg-color-primary">
         <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
           <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">

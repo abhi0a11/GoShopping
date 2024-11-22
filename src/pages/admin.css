@@ -1,0 +1,14 @@
+.cont {
+  border: 1px solid black;
+  max-width: 70%;
+  display: flex;
+  margin: 100px auto;
+  padding: 15px;
+}
+
+@media only screen and (max-width: 992px) {
+  .cont {
+    overflow-x: auto;
+    scroll-behavior: smooth;
+  }
+}

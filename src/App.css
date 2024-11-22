@@ -2,6 +2,26 @@
   margin: 0;
   padding: 0;
 }
+::-webkit-scrollbar {
+  width: 8px;
+  height: 0px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #ffffff8e;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  border-radius: 25px;
+  background: #000000ae;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #ffffff8e;
+}
 
 bg-color-primary {
   background-color: rgb(245, 245, 245) !important;
@@ -19,7 +39,9 @@ body {
 }
 
 body {
-  background: #eee;
+  /* background: #eee; */
+  background: rgba(255, 247, 250, 1) !important;
+
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   font-size: 14px;
   color: #000;
