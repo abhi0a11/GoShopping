@@ -23,8 +23,8 @@ const AllProducsDecoration = () => {
     <div className="container">
       <h1>Home Decor</h1>
       <div className="row row-cols-4">
-        {data.map(entry => (
-          <Card entry={entry}></Card>
+        {data.map((entry, i) => (
+          <Card key={i} entry={entry}></Card>
         ))}
       </div>
     </div>

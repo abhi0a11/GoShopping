@@ -2,10 +2,12 @@ import React, { useContext } from "react";
 import { Context, server } from "../main";
 import axios from "axios";
 import toast from "react-hot-toast";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 import { Link } from "react-scroll";
 import { FaShoppingCart } from "react-icons/fa";
 const Navbar = () => {
+  const navigate = useNavigate();
   const { isAuthenticated, setIsAuthenticated, loading, setLoading } =
     useContext(Context);
   const logoutHandler = async () => {
@@ -17,8 +19,8 @@ const Navbar = () => {
       toast.success("Logged out successfully");
       setIsAuthenticated(false);
       setLoading(false);
+      navigate("/");
     } catch (error) {
-      console.log("btn triggered", error);
       toast.error(err.response.data.message);
       setIsAuthenticated(true);
       setLoading(false);
@@ -158,6 +160,7 @@ const Navbar = () => {
                       type="button"
                       onClick={logoutHandler}
                       className="nav-link fs-sm"
+                      disabled={loading}
                     >
                       Logout
                     </button>

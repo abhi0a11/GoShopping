@@ -1,16 +1,42 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
-
+import toast from "react-hot-toast";
 import { FaAngleRight } from "react-icons/fa";
 import {
   BiSolidChevronRightCircle,
   BiSolidChevronLeftCircle,
 } from "react-icons/bi";
 
-import Card from "./Card";
-import "./products.css";
+import sofa2 from "../../assets/sofa_single.png";
+import sofa3 from "../../assets/single_sofa.png";
+import sofa4 from "../../assets/sofa_blue.png";
+import bed from "../../assets/bed.png";
 import axios from "axios";
-import { Context } from "../main";
-const Electronics = () => {
+import Card from "../Card";
+import Card1 from "../Card1";
+import "./products.css";
+import { Context } from "../../main";
+
+const Furniture = () => {
+  const [data, setData] = useState([]);
+  const { loading, setLoading } = useContext(Context);
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true);
+      try {
+        const res = await axios.get("https://dummyjson.com/products/?limit=0");
+        const fur = res.data.products.filter(
+          entry => entry.category === "furniture"
+        );
+        setData(fur);
+        setLoading(false);
+      } catch (error) {
+        setLoading(false);
+        toast.error(error);
+      }
+    };
+    fetchData();
+  }, []);
+
   const ScrollRef = useRef(0);
   const handleScrollLeft = scrollOfset => {
     console.log("left trigerred", ScrollRef.current.scrollLeft);
@@ -22,36 +48,12 @@ const Electronics = () => {
     ScrollRef.current.scrollLeft += scrollOfset;
     console.log("right trigerred", ScrollRef.current.scrollRight);
   };
-
-  const [data, setData] = useState([]);
-  const { loading, setLoading } = useContext(Context);
-  useEffect(() => {
-    const fetchData = async () => {
-      setLoading(true);
-      try {
-        const res = await axios.get("https://dummyjson.com/products/?limit=0");
-        console.log(res.data.products);
-        const fur = res.data.products.filter(
-          entry => entry.category === "electronics"
-        );
-        setData(fur);
-        console.log(fur);
-        setLoading(false);
-      } catch (error) {
-        setLoading(false);
-        console.log("error hai bhai", error);
-        toast.error(error);
-      }
-    };
-    fetchData();
-  }, []);
-
   return (
-    <div className="main_cont" id="electronics">
+    <div className="main_cont" id="furniture">
       <div className="d-flex justify-content-between">
-        <h3 className="mx-5 mb-3">Electronics </h3>
+        <h3 className="mx-5 mb-3">Furniture </h3>
         <a
-          href="/allProductsElectronics"
+          href="/allProductsFurniture"
           className="more_btn"
           style={{ marginRight: "24px" }}
         >
@@ -81,26 +83,18 @@ const Electronics = () => {
           />
         </button>
         <div className="d-flex scroll_container" ref={ScrollRef}>
-          {/* <Card pic={bed}></Card>
-          <Card pic={sofa2}></Card>
-          <Card pic={sofa3}></Card>
-          <Card pic={sofa4}></Card>
-          <Card pic={sofa2}></Card>
-          <Card pic={sofa4}></Card>
-          <Card pic={bed}></Card>
-          <Card pic={sofa3}></Card>
-          <Card pic={sofa3}></Card>
-          <Card pic={sofa2}></Card>
-          <Card pic={bed}></Card>
-          <Card pic={sofa4}></Card>
-          <Card pic={sofa3}></Card>
-          <Card pic={sofa2}></Card>
-          <Card pic={bed}></Card>
-          <Card pic={sofa4}></Card> */}
+          {data.map((entry, i) => (
+            <Card key={i} entry={entry}></Card>
+          ))}
+
+          <Card1 pic={sofa2}></Card1>
+          <Card1 pic={sofa3}></Card1>
+          <Card1 pic={sofa4}></Card1>
+          <Card1 pic={bed}></Card1>
         </div>
       </section>
     </div>
   );
 };
 
-export default Electronics;
+export default Furniture;

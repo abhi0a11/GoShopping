@@ -1,16 +1,17 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
+
 import { FaAngleRight } from "react-icons/fa";
 import {
   BiSolidChevronRightCircle,
   BiSolidChevronLeftCircle,
 } from "react-icons/bi";
 
-import Card from "./Card";
 import "./products.css";
+import { Context } from "../../main";
 import axios from "axios";
-import { Context } from "../main";
+import Card from "../Card";
 
-const KitchenAppliances = () => {
+const Decoration = () => {
   const ScrollRef = useRef(0);
   const handleScrollLeft = scrollOfset => {
     console.log("left trigerred", ScrollRef.current.scrollLeft);
@@ -22,6 +23,7 @@ const KitchenAppliances = () => {
     ScrollRef.current.scrollLeft += scrollOfset;
     console.log("right trigerred", ScrollRef.current.scrollRight);
   };
+
   const [data, setData] = useState([]);
   const { loading, setLoading } = useContext(Context);
   useEffect(() => {
@@ -30,12 +32,13 @@ const KitchenAppliances = () => {
       try {
         const res = await axios.get("https://dummyjson.com/products/?limit=0");
         const fur = res.data.products.filter(
-          entry => entry.category === "kitchen-accessories"
+          entry => entry.category === "home-decoration"
         );
         setData(fur);
         setLoading(false);
       } catch (error) {
         setLoading(false);
+        console.log("error hai bhai", error);
         toast.error(error);
       }
     };
@@ -43,11 +46,11 @@ const KitchenAppliances = () => {
   }, []);
 
   return (
-    <div className="main_cont" id="KitchenAppliances">
+    <div className="main_cont" id="Decoration">
       <div className="d-flex justify-content-between">
-        <h3 className="mx-5 mb-3">Kitchen Appliances </h3>
+        <h3 className="mx-5 mb-3">Decoration </h3>
         <a
-          href="/allProductsKitchen"
+          href="/allProductsDecoration"
           className="more_btn"
           style={{ marginRight: "24px" }}
         >
@@ -77,8 +80,8 @@ const KitchenAppliances = () => {
           />
         </button>
         <div className="d-flex scroll_container" ref={ScrollRef}>
-          {data.map(entry => (
-            <Card entry={entry}></Card>
+          {data.map((entry, i) => (
+            <Card key={i} entry={entry}></Card>
           ))}
           {/* <Card pic={bed}></Card>
           <Card pic={sofa2}></Card>
@@ -102,4 +105,4 @@ const KitchenAppliances = () => {
   );
 };
 
-export default KitchenAppliances;
+export default Decoration;

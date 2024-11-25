@@ -7,6 +7,7 @@ import { Navigate } from "react-router-dom";
 
 import styles from "../components/Services.module.css";
 import TypedJs from "../components/TypedJs";
+
 const Login = () => {
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
@@ -34,7 +35,7 @@ const Login = () => {
     } catch (error) {
       setIsAuthenticated(false);
       setLoading(false);
-      toast.error(error.response.data.message);
+      console.error(error);
     }
   };
   if (isAuthenticated)
@@ -46,22 +47,22 @@ const Login = () => {
   return (
     <div className="d-flex justify-content-center ">
       <div
-        class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-body-tertiary bg-color-primary d-flex rounded-5"
+        className="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-body-tertiary bg-color-primary d-flex rounded-5"
         style={{ marginLeft: "30px" }}
       >
-        <div class=" p-lg-5 mx-auto my-5 brand_container">
-          <h1 class={`display-5 fw-bold ${styles.text}`}>
+        <div className=" p-lg-5 mx-auto my-5 brand_container">
+          <h1 className={`display-5 fw-bold ${styles.text}`}>
             {/* NEERAJ <br /> INDUSTRIES & EXPORT */}
             Abhishek Industries and Exports
           </h1>
           <h3
-            class="fw-normal text-muted mb-3 bg-color-primary"
+            className="fw-normal text-muted mb-3 bg-color-primary"
             style={{ fontSize: "1rem" }}
           >
             Build anything you want with Trust since 2023.
           </h3>
           <div
-            class="d-flex gap-3 justify-content-center fw-bold my-5"
+            className="d-flex gap-3 justify-content-center fw-bold my-5"
             style={{ fontSize: "2rem" }}
           >
             <TypedJs />

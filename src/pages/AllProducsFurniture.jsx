@@ -34,8 +34,8 @@ const AllProducsFurniture = () => {
     <div className="container">
       <h1>Furnitures</h1>
       <div className="row row-cols-4">
-        {data.map(entry => (
-          <Card entry={entry}></Card>
+        {data.map((entry, i) => (
+          <Card key={i} entry={entry}></Card>
         ))}
         <Card1 pic={sofa2}></Card1>
         <Card1 pic={sofa3}></Card1>

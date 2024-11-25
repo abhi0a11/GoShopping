@@ -6,12 +6,11 @@ import {
   BiSolidChevronLeftCircle,
 } from "react-icons/bi";
 
-import Card from "./Card";
+import Card from "../Card";
 import "./products.css";
-import { Context } from "../main";
 import axios from "axios";
-
-const Decoration = () => {
+import { Context } from "../../main";
+const Electronics = () => {
   const ScrollRef = useRef(0);
   const handleScrollLeft = scrollOfset => {
     console.log("left trigerred", ScrollRef.current.scrollLeft);
@@ -31,10 +30,12 @@ const Decoration = () => {
       setLoading(true);
       try {
         const res = await axios.get("https://dummyjson.com/products/?limit=0");
+        console.log(res.data.products);
         const fur = res.data.products.filter(
-          entry => entry.category === "home-decoration"
+          entry => entry.category === "electronics"
         );
         setData(fur);
+        console.log(fur);
         setLoading(false);
       } catch (error) {
         setLoading(false);
@@ -46,11 +47,11 @@ const Decoration = () => {
   }, []);
 
   return (
-    <div className="main_cont" id="Decoration">
+    <div className="main_cont" id="electronics">
       <div className="d-flex justify-content-between">
-        <h3 className="mx-5 mb-3">Decoration </h3>
+        <h3 className="mx-5 mb-3">Electronics </h3>
         <a
-          href="/allProductsDecoration"
+          href="/allProductsElectronics"
           className="more_btn"
           style={{ marginRight: "24px" }}
         >
@@ -80,9 +81,6 @@ const Decoration = () => {
           />
         </button>
         <div className="d-flex scroll_container" ref={ScrollRef}>
-          {data.map(entry => (
-            <Card entry={entry}></Card>
-          ))}
           {/* <Card pic={bed}></Card>
           <Card pic={sofa2}></Card>
           <Card pic={sofa3}></Card>
@@ -105,4 +103,4 @@ const Decoration = () => {
   );
 };
 
-export default Decoration;
+export default Electronics;

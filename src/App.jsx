@@ -12,15 +12,14 @@ import Register from "./pages/Register";
 import { Toaster } from "react-hot-toast";
 import { Context, server } from "./main";
 import Admin from "./pages/Admin";
-import Electronics from "./components/Electronics";
-import Decoration from "./components/Decoration";
-import KitchenAppliances from "./components/KitchenAppliances";
-import Furniture from "./components/Furniture";
 
 import AllProducsFurniture from "./pages/AllProducsFurniture";
 import AllProducsElectronics from "./pages/AllProducsElectronics";
 import AllProducsDecoration from "./pages/AllProducsDecoration";
 import AllProducsKitchen from "./pages/AllProducsKitchen";
+import Furniture from "./components/products/Furniture";
+import KitchenAppliances from "./components/products/KitchenAppliances";
+import Decoration from "./components/products/Decoration";
 
 function App() {
   const { setIsAuthenticated, setUser, setLoading, setRole } =
@@ -39,7 +38,6 @@ function App() {
         setRole(res.data.user.role);
       })
       .catch(err => {
-        setRole("");
         setUser({});
         setLoading(false);
         setIsAuthenticated(false);
@@ -47,7 +45,6 @@ function App() {
   }, []);
   return (
     <>
-      <Navbar></Navbar>
       <Router>
         <Routes>
           <Route
@@ -55,6 +52,7 @@ function App() {
             path="/"
             element={
               <>
+                <Navbar></Navbar>
                 <Services></Services>
                 {/* <Swiper1></Swiper1> */}
                 <Furniture></Furniture>
@@ -65,9 +63,36 @@ function App() {
               </>
             }
           />
-          <Route exact path="/login" element={<Login></Login>} />
-          <Route exact path="/register" element={<Register></Register>} />
-          <Route exact path="/admin" element={<Admin></Admin>} />
+          <Route
+            exact
+            path="/login"
+            element={
+              <>
+                <Navbar></Navbar>
+                <Login></Login>
+              </>
+            }
+          />
+          <Route
+            exact
+            path="/register"
+            element={
+              <>
+                <Navbar></Navbar>
+                <Register></Register>
+              </>
+            }
+          />
+          <Route
+            exact
+            path="/admin"
+            element={
+              <>
+                <Navbar></Navbar>
+                <Admin></Admin>
+              </>
+            }
+          />
           <Route
             exact
             path="/allProductsFurniture"
