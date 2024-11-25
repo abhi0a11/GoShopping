@@ -5,8 +5,9 @@ import "slick-carousel/slick/slick-theme.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import App from "./App.jsx";
 
-// export const server = "http://localhost:3000";
-export const server = "https://neeraj-industries-be.onrender.com";
+export const cloud_server = "https://api.cloudinary.com/v1_1";
+export const server = "http://localhost:3000";
+// export const server = "https://neeraj-industries-be.onrender.com";
 
 export const Context = createContext({
   isAuthenticated: false,
@@ -17,6 +18,7 @@ const AppWrapper = () => {
   const [loading, setLoading] = useState(false);
   const [user, setUser] = useState({});
   const [role, setRole] = useState("");
+  const [token, setToken] = useState("");
 
   return (
     <Context.Provider
@@ -29,6 +31,8 @@ const AppWrapper = () => {
         setUser,
         role,
         setRole,
+        token,
+        setToken,
       }}
     >
       <App />

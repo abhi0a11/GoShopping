@@ -6,10 +6,12 @@ import { Context, server } from "../../main";
 import axios from "axios";
 import "./add.css";
 import Update from "./Update";
+import { Navigate } from "react-router-dom";
 
 const Search = () => {
   const [name, setName] = useState("");
-  const { loading, setLoading } = useContext(Context);
+  const { isAuthenticated, setIsAuthenticated, loading, setLoading } =
+    useContext(Context);
   const [flag, setFlag] = useState(0);
 
   const submitHandler = async e => {
@@ -17,18 +19,23 @@ const Search = () => {
     setLoading(true);
     try {
       const { data } = await axios.get(
-        `${server}/api/v1/admin/products/${name}`
+        `${server}/api/v1/admin/products/${name}`,
+        {
+          withCredentials: true,
+        }
       );
 
       toast.success(data.message);
       setLoading(false);
       setFlag(data.success);
     } catch (error) {
+      setIsAuthenticated(error.response.data.auth);
       setLoading(false);
       toast.error(error.response.data.message);
       setFlag(data.success);
     }
   };
+  if (!isAuthenticated) return <Navigate to="/login"></Navigate>;
   return (
     <>
       {flag == 0 ? (
@@ -36,7 +43,7 @@ const Search = () => {
           className="d-flex flex-column w-100 rounded-5"
           onSubmit={submitHandler}
         >
-          <h1 className="head display-6">Enter Updated Product details</h1>
+          <h1 className="head display-6">Enter Name of the product</h1>
           <input
             className="my-2 form_input"
             value={name}

@@ -18,7 +18,8 @@ const Update = ({ Name }) => {
   const [cloth, setCloth] = useState("");
   const [category, setCategory] = useState("furniture");
   const [files, setFiles] = useState([]);
-  const { loading, setLoading } = useContext(Context);
+  const { isAuthenticated, setIsAuthenticated, loading, setLoading } =
+    useContext(Context);
 
   const filesHandler = e => {
     if (!e.target.files) {
@@ -52,35 +53,48 @@ const Update = ({ Name }) => {
     });
     setFiles(newImages);
   };
+  const createPayload = (c, w, cl, uploaded_files) => {
+    const obj = {};
+    if (price) obj.price = price;
+    if (discount) obj.discount = discount;
+    if (description) obj.description = description;
+    if (warranty) obj.warranty = warranty;
+    if (c.length) obj.color = c;
+    if (w.length) obj.wood = w;
+    if (cl.length) obj.cloth = cl;
+    if (uploaded_files.length) obj.files = uploaded_files;
+
+    return obj;
+  };
   const submitHandler = async e => {
     e.preventDefault();
     setLoading(true);
     try {
       // upload files
       const uploaded_files = await uploadFiles(files);
+      console.log("adter uploading", uploaded_files);
       // break input string into array
-      let c = color.split(",").map(item => item.trim());
-      let w = wood.split(",").map(item => item.trim());
-      let cl = cloth.split(",").map(item => item.trim());
+      let c = color.length ? color.split(",").map(item => item.trim()) : [];
+      let w = wood.length ? wood.split(",").map(item => item.trim()) : [];
+      let cl = cloth.length ? cloth.split(",").map(item => item.trim()) : [];
 
-      const { data } = await axios.post(`${server}/api/v1/admin/add`, {
-        name,
-        price,
-        discount,
-        pictures: uploaded_files,
-        description,
-        warranty,
-        color: c,
-        wood: w,
-        cloth: cl,
-        category,
-      });
+      const payload = createPayload(c, w, cl, uploaded_files);
+      // console.log(payload);
+
+      const { data } = await axios.put(
+        `${server}/api/v1/admin/update/${Name}`,
+        payload,
+        {
+          withCredentials: true,
+        }
+      );
 
       toast.success(data);
       setLoading(false);
     } catch (error) {
       setLoading(false);
-      toast.error(error.message);
+      setIsAuthenticated(error.response.data.auth);
+      toast.error(error.response.data.message);
     }
   };
   return (
@@ -95,6 +109,7 @@ const Update = ({ Name }) => {
         onChange={e => setName(e.target.value)}
         type="text"
         placeholder="Name*"
+        disabled={true}
       />
       <input
         className="my-2 form_input"
@@ -160,6 +175,7 @@ const Update = ({ Name }) => {
         value={category}
         onChange={e => setCategory(e.target.value)}
         className="my-2 form_input"
+        disabled={true}
       >
         <option value="furniture">Furniture</option>
         <option value="kitchen-appliances">Kitchen Appliances</option>

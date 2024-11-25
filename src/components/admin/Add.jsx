@@ -6,6 +6,7 @@ import { Context, server } from "../../main";
 import axios from "axios";
 import "./add.css";
 import { uploadFiles } from "../../utils/upload";
+import { Navigate } from "react-router-dom";
 
 const Add = () => {
   const [name, setName] = useState("");
@@ -18,7 +19,8 @@ const Add = () => {
   const [cloth, setCloth] = useState("");
   const [category, setCategory] = useState("furniture");
   const [files, setFiles] = useState([]);
-  const { loading, setLoading } = useContext(Context);
+  const { isAuthenticated, setIsAuthenticated, loading, setLoading } =
+    useContext(Context);
 
   const filesHandler = e => {
     if (!e.target.files) {
@@ -64,26 +66,36 @@ const Add = () => {
       let w = wood.split(",").map(item => item.trim());
       let cl = cloth.split(",").map(item => item.trim());
 
-      const { data } = await axios.post(`${server}/api/v1/admin/add`, {
-        name,
-        price,
-        discount,
-        pictures: uploaded_files,
-        description,
-        warranty,
-        color: c,
-        wood: w,
-        cloth: cl,
-        category,
-      });
+      const { data } = await axios.post(
+        `${server}/api/v1/admin/add`,
+        {
+          name,
+          price,
+          discount,
+          pictures: uploaded_files,
+          description,
+          warranty,
+          color: c,
+          wood: w,
+          cloth: cl,
+          category,
+        },
+        {
+          withCredentials: true,
+        }
+      );
 
+      console.log(data);
       toast.success(data);
       setLoading(false);
     } catch (error) {
+      console.log(error);
       setLoading(false);
-      toast.error(error.message);
+      setIsAuthenticated(error.response.data.auth);
+      toast.error(error.response.data.message);
     }
   };
+  if (!isAuthenticated) return <Navigate to="/login" />;
   return (
     <form
       className="d-flex flex-column w-100 rounded-5"

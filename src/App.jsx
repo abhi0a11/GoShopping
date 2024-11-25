@@ -6,7 +6,12 @@ import Services from "./components/Services";
 import Swiper1 from "./components/Swiper1";
 import axios from "axios";
 
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+} from "react-router-dom";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import { Toaster } from "react-hot-toast";
@@ -22,8 +27,15 @@ import KitchenAppliances from "./components/products/KitchenAppliances";
 import Decoration from "./components/products/Decoration";
 
 function App() {
-  const { setIsAuthenticated, setUser, setLoading, setRole } =
-    useContext(Context);
+  const {
+    isAuthenticated,
+    setIsAuthenticated,
+    setUser,
+    setLoading,
+    setRole,
+    setToken,
+    role,
+  } = useContext(Context);
 
   useEffect(() => {
     setLoading(true);
@@ -36,6 +48,7 @@ function App() {
         setUser(res.data.user);
         setIsAuthenticated(true);
         setRole(res.data.user.role);
+        setToken(res.data.token);
       })
       .catch(err => {
         setUser({});
@@ -43,6 +56,7 @@ function App() {
         setIsAuthenticated(false);
       });
   }, []);
+
   return (
     <>
       <Router>
@@ -51,16 +65,20 @@ function App() {
             exact
             path="/"
             element={
-              <>
-                <Navbar></Navbar>
-                <Services></Services>
-                {/* <Swiper1></Swiper1> */}
-                <Furniture></Furniture>
-                {/* <Electronics></Electronics> */}
-                <KitchenAppliances></KitchenAppliances>
-                <Decoration></Decoration>
-                <Footer></Footer>
-              </>
+              role == "Admin" ? (
+                <Navigate to="/admin" />
+              ) : (
+                <>
+                  <Navbar></Navbar>
+                  <Services></Services>
+                  {/* <Swiper1></Swiper1> */}
+                  <Furniture></Furniture>
+                  {/* <Electronics></Electronics> */}
+                  <KitchenAppliances></KitchenAppliances>
+                  <Decoration></Decoration>
+                  <Footer></Footer>
+                </>
+              )
             }
           />
           <Route
@@ -83,14 +101,19 @@ function App() {
               </>
             }
           />
+
           <Route
             exact
             path="/admin"
             element={
-              <>
-                <Navbar></Navbar>
-                <Admin></Admin>
-              </>
+              isAuthenticated ? (
+                <>
+                  <Navbar></Navbar>
+                  <Admin></Admin>
+                </>
+              ) : (
+                <Navigate to="/login" />
+              )
             }
           />
           <Route

@@ -1,4 +1,5 @@
 import axios from "axios";
+import { cloud_server } from "../main";
 
 const cloud_name = "daiwqouix";
 const cloud_secret = "jcmy3yul";
@@ -13,16 +14,13 @@ export const uploadFiles = async files => {
     let res = await uploadToCloudinary(formData);
     uploaded.push(res.secure_url);
   }
-  console.log("these are uploaded files ", uploaded);
+  // console.log("these are uploaded files ", uploaded);
   return uploaded;
 };
 const uploadToCloudinary = async formData => {
   return new Promise(async resolve => {
     return await axios
-      .post(
-        `https://api.cloudinary.com/v1_1/${cloud_name}/raw/upload`,
-        formData
-      )
+      .post(`${cloud_server}/${cloud_name}/raw/upload`, formData)
       .then(({ data }) => {
         resolve(data);
       })

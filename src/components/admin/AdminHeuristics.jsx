@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
 import "../../pages/admin.css";
-import { server } from "../../main";
+import { Context, server } from "../../main";
+import { Navigate } from "react-router-dom";
 const AdminHeuristics = () => {
+  const { isAuthenticated, setIsAuthenticated } = useContext(Context);
+
   const [data, setData] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
@@ -13,11 +16,14 @@ const AdminHeuristics = () => {
         });
         setData(res.data);
       } catch (error) {
+        setIsAuthenticated(error.response.data.auth);
         toast.error(error);
       }
     };
     fetchData();
   }, []);
+
+  if (!isAuthenticated) return <Navigate to="/login"></Navigate>;
   return (
     <div className="cont">
       <table className="table caption-top table-responsive">

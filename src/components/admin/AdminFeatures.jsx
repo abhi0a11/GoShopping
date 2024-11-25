@@ -3,8 +3,10 @@ import Add from "./Add.jsx";
 import "./admin.css";
 import { useState } from "react";
 import { useEffect } from "react";
-import Update from "./Update.jsx";
+
 import Search from "./Search.jsx";
+import DeleteProduct from "./DeleteProduct.jsx";
+
 const AdminFeatures = () => {
   const [formAction, setFormAction] = useState(0);
   useEffect(() => {
@@ -34,7 +36,7 @@ const AdminFeatures = () => {
         {formAction == 0 && <Add></Add>}
         {formAction == 1 && <Add></Add>}
         {formAction == 2 && <Search></Search>}
-        {formAction == 3 && <Add></Add>}
+        {formAction == 3 && <DeleteProduct />}
       </section>
     </div>
   );
