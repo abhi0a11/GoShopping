@@ -27,7 +27,8 @@ const DeleteProduct = () => {
       setLoading(false);
     } catch (error) {
       setLoading(false);
-      setIsAuthenticated(error.response.data.auth);
+      error?.response?.data?.auth &&
+        setIsAuthenticated(error.response.data.auth);
       toast.error(error.response.data.message);
     }
   };

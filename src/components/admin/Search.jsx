@@ -29,7 +29,8 @@ const Search = () => {
       setLoading(false);
       setFlag(data.success);
     } catch (error) {
-      setIsAuthenticated(error.response.data.auth);
+      error?.response?.data?.auth &&
+        setIsAuthenticated(error.response.data.auth);
       setLoading(false);
       toast.error(error.response.data.message);
       setFlag(data.success);
