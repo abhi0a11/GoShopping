@@ -95,6 +95,15 @@ const Add = () => {
         setIsAuthenticated(error.response.data.auth);
       toast.error(error.response.data.message);
     }
+    setName("");
+    setPrice("");
+    setDiscount("");
+    setFiles("");
+    setDescription("");
+    setWarranty("");
+    setColor("");
+    setCloth("");
+    setWood("");
   };
   if (!isAuthenticated) return <Navigate to="/login" />;
   return (

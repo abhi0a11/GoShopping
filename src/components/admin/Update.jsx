@@ -97,6 +97,15 @@ const Update = ({ Name }) => {
         setIsAuthenticated(error.response.data.auth);
       toast.error(error.response.data.message);
     }
+    setName("");
+    setPrice("");
+    setDiscount("");
+    setFiles("");
+    setDescription("");
+    setWarranty("");
+    setColor("");
+    setCloth("");
+    setWood("");
   };
   return (
     <form

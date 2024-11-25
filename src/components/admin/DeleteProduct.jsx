@@ -31,6 +31,7 @@ const DeleteProduct = () => {
         setIsAuthenticated(error.response.data.auth);
       toast.error(error.response.data.message);
     }
+    setName("");
   };
 
   if (!isAuthenticated) return <Navigate to="/login" />;
