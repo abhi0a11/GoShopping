@@ -4,3 +4,6 @@
 .image_marquee {
   width: 100%;
 }
+.text {
+  width: 85vw !important;
+}
