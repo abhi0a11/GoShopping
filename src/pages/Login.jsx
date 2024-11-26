@@ -33,6 +33,7 @@ const Login = () => {
       setIsAuthenticated(true);
       toast.success(data.message);
     } catch (error) {
+      toast.error(error.response.data.message);
       setIsAuthenticated(false);
       setLoading(false);
       console.error(error);
@@ -71,7 +72,7 @@ const Login = () => {
 
         <section className="d-flex justify-content-center form_container">
           <form
-            className="d-flex flex-column w-100 rounded-5"
+            className="d-flex flex-column w-100 rounded-5 login_form"
             onSubmit={submitHandler}
           >
             <h1 className="head">Welcome Back!</h1>

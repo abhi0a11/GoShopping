@@ -9,7 +9,7 @@ const Admin = () => {
   return (
     <>
       <AdminFeatures></AdminFeatures>
-      <AdminHeuristics></AdminHeuristics>
+      {/* <AdminHeuristics></AdminHeuristics> */}
     </>
   );
 };

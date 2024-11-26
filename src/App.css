@@ -19,9 +19,8 @@
 }
 
 /* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #ffffff8e;
-}
+/* ::-webkit-scrollbar-thumb:hover {
+} */
 
 bg-color-primary {
   background-color: rgb(245, 245, 245) !important;

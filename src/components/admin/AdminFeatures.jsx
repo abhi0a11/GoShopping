@@ -6,6 +6,7 @@ import { useEffect } from "react";
 
 import Search from "./Search.jsx";
 import DeleteProduct from "./DeleteProduct.jsx";
+import AdminHeuristics from "./AdminHeuristics.jsx";
 
 const AdminFeatures = () => {
   const [formAction, setFormAction] = useState(0);
@@ -33,7 +34,7 @@ const AdminFeatures = () => {
       </div>
 
       <section className="d-flex justify-content-center form_container">
-        {formAction == 0 && <Add></Add>}
+        {formAction == 0 && <AdminHeuristics></AdminHeuristics>}
         {formAction == 1 && <Add></Add>}
         {formAction == 2 && <Search></Search>}
         {formAction == 3 && <DeleteProduct />}

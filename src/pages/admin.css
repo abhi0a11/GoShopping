@@ -1,14 +1,13 @@
 .cont {
-  border: 1px solid black;
-  max-width: 70%;
+  border: 2px solid #e7e7e7;
+  border-radius: 24px;
+  overflow-y: scroll;
+  /* max-width: 70%; */
+  width: 100%0;
   display: flex;
-  margin: 100px auto;
+  margin: 21px 64px;
   padding: 15px;
 }
-
-@media only screen and (max-width: 992px) {
-  .cont {
-    overflow-x: auto;
-    scroll-behavior: smooth;
-  }
+.btn {
+  padding: 0px 12px;
 }

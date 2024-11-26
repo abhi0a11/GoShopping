@@ -108,7 +108,7 @@ const Add = () => {
   if (!isAuthenticated) return <Navigate to="/login" />;
   return (
     <form
-      className="d-flex flex-column w-100 rounded-5"
+      className="d-flex flex-column w-100 rounded-5 add_form"
       onSubmit={submitHandler}
     >
       <h1 className="head display-6">Enter your Product details</h1>
