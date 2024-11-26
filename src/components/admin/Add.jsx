@@ -194,7 +194,7 @@ const Add = () => {
       </select>
       <button
         type="submit"
-        className="form_btn"
+        className="form_btn btn btn-outline-primary"
         disabled={loading}
         onClick={submitHandler}
       >

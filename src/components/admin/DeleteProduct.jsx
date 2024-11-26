@@ -53,7 +53,7 @@ const DeleteProduct = () => {
 
         <button
           type="submit"
-          className="form_btn"
+          className="form_btn btn btn-outline-danger"
           disabled={loading}
           onClick={submitHandler}
         >

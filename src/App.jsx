@@ -69,7 +69,7 @@ function App() {
                 <Navigate to="/admin" />
               ) : (
                 <>
-                  <Navbar></Navbar>
+                  <Navbar role={"User"}></Navbar>
                   <Services></Services>
                   {/* <Swiper1></Swiper1> */}
                   <Furniture></Furniture>
@@ -86,7 +86,7 @@ function App() {
             path="/login"
             element={
               <>
-                <Navbar></Navbar>
+                <Navbar role={"User"}></Navbar>
                 <Login></Login>
               </>
             }
@@ -96,7 +96,7 @@ function App() {
             path="/register"
             element={
               <>
-                <Navbar></Navbar>
+                <Navbar role={"User"}></Navbar>
                 <Register></Register>
               </>
             }
@@ -108,7 +108,7 @@ function App() {
             element={
               isAuthenticated ? (
                 <>
-                  <Navbar></Navbar>
+                  <Navbar role={"Admin"}></Navbar>
                   <Admin></Admin>
                 </>
               ) : (

@@ -56,7 +56,7 @@ const Search = () => {
 
           <button
             type="submit"
-            className="form_btn"
+            className="form_btn btn btn-outline-success"
             disabled={loading}
             onClick={submitHandler}
           >

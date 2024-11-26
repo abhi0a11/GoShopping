@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 import { Link } from "react-scroll";
 import { FaShoppingCart } from "react-icons/fa";
-const Navbar = () => {
+const Navbar = ({ role }) => {
   const navigate = useNavigate();
   const { isAuthenticated, setIsAuthenticated, loading, setLoading } =
     useContext(Context);
@@ -52,7 +52,7 @@ const Navbar = () => {
             className="navbar-brand position-relative z-1 ms-4 ms-sm-5 ms-lg-4 me-2 me-sm-0 me-lg-3 px-5"
             href="/"
           >
-            Neeraj Industries and Exports
+            GoShopping
           </a>
 
           {/* <!-- Main navigation that turns into offcanvas on screens < 992px wide (lg breakpoint) --> */}
@@ -64,7 +64,7 @@ const Navbar = () => {
           >
             <div className="offcanvas-header py-3">
               <h5 className="offcanvas-title" id="navbarNavLabel">
-                Neeraj Industries and Exports
+                GoShopping
               </h5>
               <button
                 type="button"
@@ -73,87 +73,91 @@ const Navbar = () => {
                 aria-label="Close"
               ></button>
             </div>
-            <div className="offcanvas-body pt-3 pb-4 py-lg-0 mx-lg-auto">
-              <ul className="navbar-nav position-relative">
-                <li className="nav-item me-lg-n1 me-xl-0">
-                  <Link
-                    className="nav-link fs-sm"
-                    to="furniture"
-                    role="button"
-                    data-bs-toggle="dropdown"
-                    data-bs-trigger="hover"
-                    smooth={true}
-                    offset={-150}
-                    duration={100}
-                    aria-expanded="false"
-                  >
-                    Furniture
-                  </Link>
-                </li>
+            <div className="offcanvas-body pt-3 pb-4 py-lg-0 justify-content-end">
+              <ul className="navbar-nav position-relative me-4 me-sm-5 me-lg-4 ms-2 ms-sm-0 ms-lg-3 px-5">
+                {role == "User" && (
+                  <>
+                    <li className="nav-item me-lg-n1 me-xl-0">
+                      <Link
+                        className="nav-link fs-sm"
+                        to="furniture"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        data-bs-trigger="hover"
+                        smooth={true}
+                        offset={-150}
+                        duration={100}
+                        aria-expanded="false"
+                      >
+                        Furniture
+                      </Link>
+                    </li>
 
-                <li className="nav-item me-lg-n1 me-xl-0">
-                  <Link
-                    className="nav-link fs-sm"
-                    aria-current="page"
-                    role="button"
-                    data-bs-trigger="hover"
-                    aria-expanded="false"
-                    to="electronics"
-                    smooth={true}
-                    offset={-150}
-                    duration={100}
-                  >
-                    Electronics
-                  </Link>
-                </li>
-                <li className="nav-item me-lg-n1 me-xl-0">
-                  <Link
-                    to="KitchenAppliances"
-                    className="nav-link fs-sm"
-                    role="button"
-                    data-bs-toggle="dropdown"
-                    data-bs-trigger="hover"
-                    data-bs-auto-close="outside"
-                    aria-expanded="false"
-                    smooth={true}
-                    offset={-150}
-                    duration={100}
-                  >
-                    Kitchen Appliances
-                  </Link>
-                </li>
-                <li className="nav-item me-lg-n1 me-xl-0">
-                  <Link
-                    to="Decoration"
-                    className="nav-link fs-sm"
-                    role="button"
-                    data-bs-toggle="dropdown"
-                    data-bs-trigger="hover"
-                    data-bs-auto-close="outside"
-                    aria-expanded="false"
-                    smooth={true}
-                    offset={-150}
-                    duration={100}
-                  >
-                    Decoration
-                  </Link>
-                </li>
-                <li className="nav-item me-lg-n2 me-xl-0">
-                  {/* <!-- Button group --> */}
-                  <div className="d-flex gap-sm-1 position-relative z-1">
-                    {/* <!-- Cart button --> */}
-                    <button
-                      type="button"
-                      className="btn btn-icon fs-lg btn-outline-secondary border-0 rounded-circle animate-scale me-2"
-                      data-bs-toggle="offcanvas"
-                      data-bs-target="#shoppingCart"
-                      aria-controls="shoppingCart"
-                      aria-label="Shopping cart"
-                    >
-                      <FaShoppingCart />
-                    </button>
-                  </div>
-                </li>
+                    <li className="nav-item me-lg-n1 me-xl-0">
+                      <Link
+                        className="nav-link fs-sm"
+                        aria-current="page"
+                        role="button"
+                        data-bs-trigger="hover"
+                        aria-expanded="false"
+                        to="electronics"
+                        smooth={true}
+                        offset={-150}
+                        duration={100}
+                      >
+                        Electronics
+                      </Link>
+                    </li>
+                    <li className="nav-item me-lg-n1 me-xl-0">
+                      <Link
+                        to="KitchenAppliances"
+                        className="nav-link fs-sm"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        data-bs-trigger="hover"
+                        data-bs-auto-close="outside"
+                        aria-expanded="false"
+                        smooth={true}
+                        offset={-150}
+                        duration={100}
+                      >
+                        Kitchen Appliances
+                      </Link>
+                    </li>
+                    <li className="nav-item me-lg-n1 me-xl-0">
+                      <Link
+                        to="Decoration"
+                        className="nav-link fs-sm"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        data-bs-trigger="hover"
+                        data-bs-auto-close="outside"
+                        aria-expanded="false"
+                        smooth={true}
+                        offset={-150}
+                        duration={100}
+                      >
+                        Decoration
+                      </Link>
+                    </li>
+                    <li className="nav-item me-lg-n2 me-xl-0 d-flex">
+                      {/* <!-- Button group --> */}
+                      <div className="d-flex">
+                        {/* <!-- Cart button --> */}
+                        <button
+                          type="button"
+                          className="btn btn-icon fs-lg border-0 rounded-circle justify-center"
+                          data-bs-toggle="offcanvas"
+                          data-bs-target="#shoppingCart"
+                          aria-controls="shoppingCart"
+                          aria-label="Shopping cart"
+                        >
+                          <FaShoppingCart />
+                        </button>
+                      </div>
+                    </li>
+                  </>
+                )}
                 <li className="nav-item me-lg-n2 me-xl-0">
                   {isAuthenticated ? (
                     <button
@@ -175,49 +179,6 @@ const Navbar = () => {
           </nav>
         </div>
       </header>
-
-      {/* <nav className="navbar navbar-expand-lg bg-body-tertiary ">
-        <div className="container-fluid d-flex justify-center">
-          <a className="navbar-brand" href="#">
-            NEERAJ INDUSTRIES & EXPORT
-          </a>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNavAltMarkup"
-            aria-controls="navbarNavAltMarkup"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div
-            className="collapse navbar-collapse justify-content-center"
-            id="navbarNavAltMarkup"
-          >
-            <div className={`navbar-nav ${styles.text}`}> */}
-      {/*  */}
-      {/* <a className={`nav-link active `} aria-current="page" href="#">
-              Home
-            </a> */}
-      {/*  */}
-      {/* <a className={`nav-link active `} aria-current="page" href="#">
-                Home Interior
-              </a>
-              <a className="nav-link" href="#Furniture">
-                Furniture
-              </a>
-              <a className="nav-link" href="#">
-                Electronics
-              </a>
-              <a className="nav-link " href="#">
-                Exports
-              </a>
-            </div>
-          </div>
-        </div>
-      </nav> */}
     </>
   );
 };
