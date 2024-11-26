@@ -74,7 +74,7 @@ const Navbar = ({ role }) => {
               ></button>
             </div>
             <div className="offcanvas-body pt-3 pb-4 py-lg-0 justify-content-end">
-              <ul className="navbar-nav position-relative me-4 me-sm-5 me-lg-4 ms-2 ms-sm-0 ms-lg-3 px-5">
+              <ul className="navbar-nav position-relative me-4 me-sm-5 me-lg-4 ms-2 ms-sm-0 ms-lg-3">
                 {role == "User" && (
                   <>
                     <li className="nav-item me-lg-n1 me-xl-0">

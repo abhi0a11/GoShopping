@@ -36,7 +36,7 @@ const Services = () => {
             </div>
             <div className="carousel-inner">
               <div className="carousel-item active" data-bs-interval="10000">
-                <img src={sofa2} className="d-block" alt="..." />
+                <img src={sofa2} className="d-block w-100" alt="..." />
                 <div className="carousel-caption d-none d-md-block">
                   <h5>First slide label</h5>
                   <p>
