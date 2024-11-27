@@ -6,11 +6,11 @@ This repository contains the front-end code for an e-commerce platform. It is bu
 - **Product Listing:** Browse various products with sorting and filtering options.
 - **Product Details:** View detailed information, including images, descriptions, and reviews.
 - **Search Functionality:** Search for products using keywords.
-- **Shopping Cart:** Add, update, or remove items in the cart.
+- **Shopping Cart:** Add, update, or remove items in the cart (Not implemented till now).
 - **User Authentication:** Secure user login and signup functionality.
-- **Order Summary:** Review orders before making payments.
-- **Shopping Cart:** Save favorite products for future reference.
-- **Checkout:** Integrated with payment gateways for smooth transactions.
+- **Order Summary:** Review orders before making payments (Not implemented till now).
+- **Shopping Cart:** Save favorite products for future reference (Not implemented till now).
+- **Checkout:** Integrated with payment gateways for smooth transactions (Not implemented till now).
 
 ## Tech Stack
 - **Frontend Framework:** React.js
