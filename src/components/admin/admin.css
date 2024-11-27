@@ -10,3 +10,18 @@
   border: 2px solid #e7e7e7;
   border-radius: 12px;
 }
+
+@media screen and (max-width: 992px) {
+  .admin_container {
+    flex-direction: column !important;
+  }
+  .btn-container {
+    align-items: center !important;
+  }
+  .btn-custom {
+    min-width: 60vw;
+  }
+  .form_container {
+    align-items: baseline !important;
+  }
+}

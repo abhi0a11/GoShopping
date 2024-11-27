@@ -1,11 +1,11 @@
 import React, { useContext, useState } from "react";
-import "./login.css";
 import axios from "axios";
 import { Context, server } from "../main";
 import toast from "react-hot-toast";
 import { Navigate } from "react-router-dom";
 import styles from "../components/Services.module.css";
 import TypedJs from "../components/TypedJs";
+import "./login.css";
 
 const Register = () => {
   const [name, setName] = useState("");

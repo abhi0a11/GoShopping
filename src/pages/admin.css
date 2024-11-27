@@ -1,13 +1,18 @@
 .cont {
   border: 2px solid #e7e7e7;
   border-radius: 24px;
-  overflow-y: scroll;
-  /* max-width: 70%; */
-  width: 100%0;
+  overflow: scroll;
   display: flex;
   margin: 21px 64px;
   padding: 15px;
 }
 .btn {
   padding: 0px 12px;
+}
+
+@media only screen and (max-width: 992px) {
+  .cont {
+    align-items: baseline !important;
+    margin: 24px 0px;
+  }
 }

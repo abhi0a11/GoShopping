@@ -7,3 +7,10 @@
 .text {
   width: 85vw !important;
 }
+
+@media only screen and (max-width: 992px) {
+  .text {
+    max-width: 100vw;
+    flex-direction: column !important;
+  }
+}

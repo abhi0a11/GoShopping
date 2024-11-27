@@ -91,7 +91,7 @@ const AdminHeuristics = () => {
                   {" "}
                   <button
                     key={i}
-                    className="btn btn-outline-danger"
+                    className="btn btn-outline-danger btn-b"
                     onClick={() => HandleUserAction(entry.email)}
                   >
                     Remove

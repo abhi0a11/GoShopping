@@ -15,7 +15,7 @@ const AdminFeatures = () => {
   }, []);
   return (
     <div
-      className="p-3 p-md-5 m-md-5 text-center bg-body-tertiary bg-color-primary d-flex justify-content-center rounded-5"
+      className="p-3 p-md-5 m-md-5 text-center bg-body-tertiary bg-color-primary d-flex justify-content-center rounded-5 admin_container"
       style={{ border: "2px solid #e7e7e7" }}
     >
       <div className="d-flex flex-column p-lg-5 mx-1 my-5 btn-container">
