@@ -14,11 +14,15 @@ import "./swiper.css";
 
 // import required modules
 import { EffectCoverflow, Pagination } from "swiper/modules";
+import Slick from "./Slick";
 
-const Swiper1 = () => {
+const Swiper1 = ({ dir }) => {
   return (
     <>
-      <Swiper
+      <div>
+        <Slick dir={dir} />
+      </div>
+      {/* <Swiper
         effect={"coverflow"}
         grabCursor={true}
         centeredSlides={true}
@@ -62,7 +66,7 @@ const Swiper1 = () => {
         <SwiperSlide>
           <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
         </SwiperSlide>
-      </Swiper>
+      </Swiper> */}
     </>
   );
 };

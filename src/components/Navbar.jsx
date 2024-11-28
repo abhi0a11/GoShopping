@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Context, server } from "../main";
 import axios from "axios";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 
 import { Link } from "react-scroll";
 import { FaShoppingCart } from "react-icons/fa";
@@ -151,6 +151,7 @@ const Navbar = ({ role }) => {
                           data-bs-target="#shoppingCart"
                           aria-controls="shoppingCart"
                           aria-label="Shopping cart"
+                          onClick={() => navigate("/cart")}
                         >
                           <FaShoppingCart />
                         </button>

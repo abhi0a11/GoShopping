@@ -1,12 +1,15 @@
 import React from "react";
+import sofa from "../assets/sofa.jpg";
 import sofa2 from "../assets/sofa_single.png";
 import sofa3 from "../assets/single_sofa.png";
 import sofa4 from "../assets/sofa_blue.png";
-
+import bed from "../assets/bed.png";
+import styles from "../components/Services.module.css";
+import Slick from "./Slick";
 const Services = () => {
   return (
     <>
-      <div className="position-relative overflow-hidden text-center bg-body-tertiary bg-color-primary d-flex rounded-5">
+      <div className="position-relative overflow-hidden text-center bg-body-tertiary bg-color-primary d-flex rounded-5 container mb-5">
         <div className=" mx-auto">
           <div
             id="carouselExampleDark"
@@ -98,35 +101,6 @@ const Services = () => {
         <Slick dir={true} />
       </div> */}
 
-      {/* <marquee
-        behavior="scroll"
-        direction="left"
-        scrollamount="50"
-        loop=""
-        height="350px"
-        scrolldelay="6"
-      >
-        <img src={sofa} />
-        <img src={sofa} />
-        <img src={sofa} />
-        <img src={sofa} />
-        <img src={sofa} />
-      </marquee> */}
-      {/* <marquee
-        behavior="scroll"
-        direction="right"
-        height="350px"
-        scrollamount="50"
-        loop=""
-        scrolldelay="6"
-        // scrolldelay="6"
-      >
-        <img src={sofa} style={{ "aspect-ractio": "3/2 " }} />
-        <img src={sofa} />
-        <img src={sofa} />
-        <img src={sofa} />
-        <img src={sofa} />
-      </marquee> */}
       {/* <div className="container col-xxl-8 px-4 py-5">
         <div className="row flex-lg-row-reverse align-items-center g-5 py-5">
           <div className="col-10 col-sm-8 col-lg-6">

@@ -45,7 +45,9 @@ const KitchenAppliances = () => {
   return (
     <div className="main_cont" id="KitchenAppliances">
       <div className="d-flex justify-content-between">
-        <h3 className="mx-5 mb-3">Kitchen Appliances </h3>
+        <h3 className="mx-5 mb-3" style={{ padding: "20px 0px 0px 0px" }}>
+          Kitchen Appliances{" "}
+        </h3>
         <a
           href="/allProductsKitchen"
           className="more_btn"

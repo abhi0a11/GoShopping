@@ -2,6 +2,33 @@
   margin: 0;
   padding: 0;
 }
+
+/* swiper */
+#app {
+  height: 100%;
+}
+html,
+body {
+  position: relative;
+  height: 100%;
+}
+
+body {
+  /* background: #eee; */
+  /* background: rgba(255, 247, 250, 1) !important; */
+  background: #eaeded;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+
+bg-color-primary {
+  background-color: rgb(245, 245, 245) !important;
+  color: rgb(35, 49, 66) !important;
+}
+
 ::-webkit-scrollbar {
   width: 8px;
   height: 0px;
@@ -21,32 +48,6 @@
 /* Handle on hover */
 /* ::-webkit-scrollbar-thumb:hover {
 } */
-
-bg-color-primary {
-  background-color: rgb(245, 245, 245) !important;
-  color: rgb(35, 49, 66) !important;
-}
-
-/* swiper */
-#app {
-  height: 100%;
-}
-html,
-body {
-  position: relative;
-  height: 100%;
-}
-
-body {
-  /* background: #eee; */
-  background: rgba(255, 247, 250, 1) !important;
-
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  color: #000;
-  margin: 0;
-  padding: 0;
-}
 
 .swiper {
   width: 100%;

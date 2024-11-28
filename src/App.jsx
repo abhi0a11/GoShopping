@@ -25,6 +25,7 @@ import AllProducsKitchen from "./pages/AllProducsKitchen";
 import Furniture from "./components/products/Furniture";
 import KitchenAppliances from "./components/products/KitchenAppliances";
 import Decoration from "./components/products/Decoration";
+import Cart from "./components/Cart/Cart";
 
 function App() {
   const {
@@ -38,23 +39,24 @@ function App() {
   } = useContext(Context);
 
   useEffect(() => {
-    setLoading(true);
-    axios
-      .get(`${server}/api/v1/auth/me`, {
-        withCredentials: true,
-      })
-      .then(res => {
+    const fetchUserData = async () => {
+      setLoading(true);
+      try {
+        const { data } = await axios.get(`${server}/api/v1/auth/me`, {
+          withCredentials: true,
+        });
         setLoading(false);
-        setUser(res.data.user);
+        setUser(data.user);
         setIsAuthenticated(true);
-        setRole(res.data.user.role);
-        setToken(res.data.token);
-      })
-      .catch(err => {
+        setRole(data.user.role);
+        setToken(data.token);
+      } catch (error) {
         setUser({});
         setLoading(false);
         setIsAuthenticated(false);
-      });
+      }
+    };
+    fetchUserData();
   }, []);
 
   return (
@@ -71,10 +73,11 @@ function App() {
                 <>
                   <Navbar role={"User"}></Navbar>
                   <Services></Services>
-                  {/* <Swiper1></Swiper1> */}
+                  <Swiper1 dir={false}></Swiper1>
                   <Furniture></Furniture>
                   {/* <Electronics></Electronics> */}
                   <KitchenAppliances></KitchenAppliances>
+                  <Swiper1 dir={true}></Swiper1>
                   <Decoration></Decoration>
                   <Footer></Footer>
                 </>
@@ -114,6 +117,16 @@ function App() {
               ) : (
                 <Navigate to="/login" />
               )
+            }
+          />
+          <Route
+            exact
+            path="/cart"
+            element={
+              <>
+                <Navbar role={"User"}></Navbar>
+                <Cart />
+              </>
             }
           />
           <Route

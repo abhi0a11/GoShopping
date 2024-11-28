@@ -18,15 +18,15 @@ function Slick({ dir, vdir }) {
     cssEase: "linear",
     pauseOnHover: false,
     rtl: dir,
-    pauseOnDotsHover: true,
+    // pauseOnDotsHover: true,
     vertical: vdir,
   };
   return (
     <div className="slider-container">
       <Slider {...settings}>
-        <div>
+        {/* <div>
           <img src={sofa} className={`${styles.image}`} />
-        </div>
+        </div> */}
         <div>
           <img src={sofa2} className={`${styles.image}`} />
         </div>
