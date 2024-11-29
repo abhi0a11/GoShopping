@@ -12,7 +12,7 @@ const Login = () => {
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
   const [role, setRole] = useState("User");
-  const { isAuthenticated, setIsAuthenticated, loading, setLoading } =
+  const { isAuthenticated, setIsAuthenticated, loading, setLoading, setUser } =
     useContext(Context);
   const submitHandler = async e => {
     e.preventDefault();
@@ -28,10 +28,11 @@ const Login = () => {
           withCredentials: true,
         }
       );
-
+      console.log(data);
       setLoading(false);
       setIsAuthenticated(true);
       toast.success(data.message);
+      setUser(data.user);
     } catch (error) {
       toast.error(error.response.data.message);
       setIsAuthenticated(false);

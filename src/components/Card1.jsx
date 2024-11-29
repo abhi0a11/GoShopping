@@ -9,8 +9,8 @@ const Card1 = ({ pic }) => {
         <div className="card-body">
           <h5 className="card-title">Sofa </h5>
           <p className="card-text">12000 rs</p>
-          <a href="#" className="btn btn-primary">
-            Purchase
+          <a href="#" className="btn btn-secondary">
+            Add to Cart
           </a>
         </div>
       </div>

@@ -5,6 +5,7 @@
   background: #fff !important;
   padding: 24px;
   margin-top: 24px;
+  width: 100%;
 }
 .payment_container {
   height: max-content;
@@ -25,6 +26,7 @@
 .txt {
   font-size: 1.5rem;
 }
-.cnt {
-  align-content: center;
+.pr {
+  font-size: 16px;
+  font-weight: bold;
 }
