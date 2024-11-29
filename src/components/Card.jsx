@@ -5,7 +5,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 
 const Card = ({ entry }) => {
-  const { user, setUser, isAuthenticated } = useContext(Context);
+  const { user, setUser } = useContext(Context);
   const HandleAddToCart = async () => {
     try {
       if (!user || !Array.isArray(user.cart)) {
@@ -39,7 +39,6 @@ const Card = ({ entry }) => {
         setUser(newUser);
       }
     } catch (error) {
-      console.log(error);
       toast.error(error.response.data.message);
     }
   };
