@@ -5,7 +5,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 
 const Card = ({ entry }) => {
-  const { user, setUser, setLoading } = useContext(Context);
+  const { user, setUser, setLoading, loading } = useContext(Context);
   const HandleAddToCart = async () => {
     setLoading(true);
     try {
@@ -54,6 +54,7 @@ const Card = ({ entry }) => {
           <button
             className="btn btn-secondary"
             onClick={() => HandleAddToCart()}
+            diabled={loading}
           >
             Add to Cart
           </button>
