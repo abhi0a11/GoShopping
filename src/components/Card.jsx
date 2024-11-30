@@ -5,8 +5,9 @@ import axios from "axios";
 import toast from "react-hot-toast";
 
 const Card = ({ entry }) => {
-  const { user, setUser } = useContext(Context);
+  const { user, setUser, setLoading } = useContext(Context);
   const HandleAddToCart = async () => {
+    setLoading(true);
     try {
       if (!user || !Array.isArray(user.cart)) {
         toast.error("Please Login First!");
@@ -35,10 +36,11 @@ const Card = ({ entry }) => {
           { withCredentials: true }
         );
         toast.success(data);
-
+        setLoading(false);
         setUser(newUser);
       }
     } catch (error) {
+      setLoading(false);
       toast.error(error.response.data.message);
     }
   };
