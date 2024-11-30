@@ -79,6 +79,9 @@ const Navbar = ({ role }) => {
                   <>
                     <li className="nav-item me-lg-n1 me-xl-0">
                       <Link
+                        onClick={() => {
+                          navigate("/");
+                        }}
                         className="nav-link fs-sm"
                         to="furniture"
                         role="button"
@@ -93,8 +96,11 @@ const Navbar = ({ role }) => {
                       </Link>
                     </li>
 
-                    <li className="nav-item me-lg-n1 me-xl-0">
+                    {/* <li className="nav-item me-lg-n1 me-xl-0">
                       <Link
+                        onClick={() => {
+                          navigate("/");
+                        }}
                         className="nav-link fs-sm"
                         aria-current="page"
                         role="button"
@@ -107,9 +113,12 @@ const Navbar = ({ role }) => {
                       >
                         Electronics
                       </Link>
-                    </li>
+                    </li> */}
                     <li className="nav-item me-lg-n1 me-xl-0">
                       <Link
+                        onClick={() => {
+                          navigate("/");
+                        }}
                         to="KitchenAppliances"
                         className="nav-link fs-sm"
                         role="button"
@@ -126,6 +135,9 @@ const Navbar = ({ role }) => {
                     </li>
                     <li className="nav-item me-lg-n1 me-xl-0">
                       <Link
+                        onClick={() => {
+                          navigate("/");
+                        }}
                         to="Decoration"
                         className="nav-link fs-sm"
                         role="button"

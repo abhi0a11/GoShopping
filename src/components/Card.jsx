@@ -16,7 +16,7 @@ const Card = ({ entry }) => {
         let isPresent = 0;
         for (const prod of newUser?.cart) {
           // console.log(prod);
-          if (prod.title === entry.title) {
+          if (prod.name === entry.name) {
             prod.cnt = prod.cnt + 1;
             console.log("yes");
             setUser(newUser);
@@ -30,7 +30,7 @@ const Card = ({ entry }) => {
         }
         console.log(newUser.cart);
         const { data } = await axios.put(
-          `${server}/api/v1/user/add/${entry.title}`,
+          `${server}/api/v1/user/add/${entry.name}`,
           newUser,
           { withCredentials: true }
         );
@@ -45,10 +45,10 @@ const Card = ({ entry }) => {
   return (
     <>
       <div className="card d-inline-block">
-        <img src={entry.images[0]} className="card-img-top" alt="..." />
+        <img src={entry.pictures[0]} className="card-img-top" alt="..." />
         <div className="card-body">
-          <h5 className="card-title">{entry.title}</h5>
-          <p className="card-text">{Math.round(entry.price * 40)} rs</p>
+          <h5 className="card-title">{entry.name}</h5>
+          <p className="card-text">{Math.round(entry.price).toFixed(2)} rs</p>
           <button
             className="btn btn-secondary"
             onClick={() => HandleAddToCart()}

@@ -19,6 +19,7 @@ const Add = () => {
   const [cloth, setCloth] = useState("");
   const [category, setCategory] = useState("furniture");
   const [files, setFiles] = useState([]);
+  const [stock, setStock] = useState();
   const { isAuthenticated, setIsAuthenticated, loading, setLoading } =
     useContext(Context);
 
@@ -79,6 +80,7 @@ const Add = () => {
           wood: w,
           cloth: cl,
           category,
+          stock,
         },
         {
           withCredentials: true,
@@ -104,6 +106,7 @@ const Add = () => {
     setColor("");
     setCloth("");
     setWood("");
+    setStock("");
   };
   if (!isAuthenticated) return <Navigate to="/login" />;
   return (
@@ -124,16 +127,16 @@ const Add = () => {
         className="my-2 form_input"
         value={price}
         onChange={e => setPrice(e.target.value)}
-        type="text"
-        placeholder="Price*"
+        type="number"
+        placeholder="Price"
         required
       />
       <input
         className="my-2 form_input"
         value={discount}
         onChange={e => setDiscount(e.target.value)}
-        type="text"
-        placeholder="Discount (optional)"
+        type="number"
+        placeholder="Discount (optional in percentage)"
       />
       <input
         className="my-2 form_input"
@@ -170,6 +173,13 @@ const Add = () => {
         onChange={e => setColor(e.target.value)}
         type="text"
         placeholder="Color (eg- red, greem, blue)"
+      />
+      <input
+        className="my-2 form_input"
+        value={stock}
+        onChange={e => setStock(e.target.value)}
+        type="number"
+        placeholder="stock available"
       />
       <input
         className="my-2 form_input"

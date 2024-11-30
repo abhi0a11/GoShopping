@@ -1,19 +1,23 @@
 import React, { useContext, useEffect, useState } from "react";
 import Card from "../components/Card";
 import axios from "axios";
+import { server } from "../main";
+import toast from "react-hot-toast";
 
 const AllProducsKitchen = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get("https://dummyjson.com/products/?limit=0");
-        const fur = res.data.products.filter(
-          entry => entry.category === "kitchen-accessories"
+        const res = await axios.get(
+          `${server}/api/v1/admin/allproducts/kitchen-appliances`,
+          {
+            withCredentials: true,
+          }
         );
-        setData(fur);
+        setData(res.data);
       } catch (error) {
-        toast.error(error);
+        toast.error(error.response.data.message);
       }
     };
     fetchData();

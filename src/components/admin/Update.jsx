@@ -18,6 +18,7 @@ const Update = ({ Name }) => {
   const [cloth, setCloth] = useState("");
   const [category, setCategory] = useState("furniture");
   const [files, setFiles] = useState([]);
+  const [stock, setStock] = useState();
   const { isAuthenticated, setIsAuthenticated, loading, setLoading } =
     useContext(Context);
 
@@ -63,7 +64,7 @@ const Update = ({ Name }) => {
     if (w.length) obj.wood = w;
     if (cl.length) obj.cloth = cl;
     if (uploaded_files.length) obj.files = uploaded_files;
-
+    if (stock) obj.stock = stock;
     return obj;
   };
   const submitHandler = async e => {
@@ -106,6 +107,7 @@ const Update = ({ Name }) => {
     setColor("");
     setCloth("");
     setWood("");
+    setStock("");
   };
   return (
     <form
@@ -125,14 +127,14 @@ const Update = ({ Name }) => {
         className="my-2 form_input"
         value={price}
         onChange={e => setPrice(e.target.value)}
-        type="text"
+        type="number"
         placeholder="Price*"
       />
       <input
         className="my-2 form_input"
         value={discount}
         onChange={e => setDiscount(e.target.value)}
-        type="text"
+        type="number"
         placeholder="Discount (optional)"
       />
       <input
@@ -169,6 +171,13 @@ const Update = ({ Name }) => {
         onChange={e => setColor(e.target.value)}
         type="text"
         placeholder="Color (eg- red, greem, blue)"
+      />
+      <input
+        className="my-2 form_input"
+        value={stock}
+        onChange={e => setStock(e.target.value)}
+        type="number"
+        placeholder="Stock"
       />
       <input
         className="my-2 form_input"

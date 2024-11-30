@@ -9,7 +9,7 @@ const Cart = () => {
     const calculateTotal = () => {
       let t = 0;
       user?.cart?.map(data => {
-        t += Math.round(data.price * 40) * data.cnt;
+        t += Math.round(data.price) * data.cnt;
       });
       setTotal(t);
     };

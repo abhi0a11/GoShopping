@@ -8,7 +8,8 @@ import {
 import Card from "../Card";
 import "./products.css";
 import axios from "axios";
-import { Context } from "../../main";
+import { Context, server } from "../../main";
+import toast from "react-hot-toast";
 
 const KitchenAppliances = () => {
   const ScrollRef = useRef(0);
@@ -23,20 +24,18 @@ const KitchenAppliances = () => {
     console.log("right trigerred", ScrollRef.current.scrollRight);
   };
   const [data, setData] = useState([]);
-  const { loading, setLoading } = useContext(Context);
   useEffect(() => {
     const fetchData = async () => {
-      setLoading(true);
       try {
-        const res = await axios.get("https://dummyjson.com/products/?limit=0");
-        const fur = res.data.products.filter(
-          entry => entry.category === "kitchen-accessories"
+        const res = await axios.get(
+          `${server}/api/v1/admin/allproducts/kitchen-appliances`,
+          {
+            withCredentials: true,
+          }
         );
-        setData(fur);
-        setLoading(false);
+        setData(res.data);
       } catch (error) {
-        setLoading(false);
-        toast.error(error);
+        toast.error(error.response.data.message);
       }
     };
     fetchData();
@@ -82,22 +81,6 @@ const KitchenAppliances = () => {
           {data.map((entry, i) => (
             <Card key={i} entry={entry}></Card>
           ))}
-          {/* <Card pic={bed}></Card>
-          <Card pic={sofa2}></Card>
-          <Card pic={sofa3}></Card>
-          <Card pic={sofa4}></Card>
-          <Card pic={sofa2}></Card>
-          <Card pic={sofa4}></Card>
-          <Card pic={bed}></Card>
-          <Card pic={sofa3}></Card>
-          <Card pic={sofa3}></Card>
-          <Card pic={sofa2}></Card>
-          <Card pic={bed}></Card>
-          <Card pic={sofa4}></Card>
-          <Card pic={sofa3}></Card>
-          <Card pic={sofa2}></Card>
-          <Card pic={bed}></Card>
-          <Card pic={sofa4}></Card> */}
         </div>
       </section>
     </div>

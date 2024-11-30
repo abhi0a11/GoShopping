@@ -22,7 +22,7 @@ const Footer = () => {
               Furniture
             </Link>
           </li>
-          <li className="nav-item">
+          {/* <li className="nav-item">
             <Link
               className="nav-link fs-sm"
               aria-current="page"
@@ -37,7 +37,7 @@ const Footer = () => {
             >
               Electronics
             </Link>
-          </li>
+          </li> */}
           <li className="nav-item">
             <Link
               to="KitchenAppliances"

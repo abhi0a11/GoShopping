@@ -20,3 +20,13 @@
   border-radius: 8px;
   padding: 8px 8px !important;
 }
+.hide-spinner::-webkit-outer-spin-button,
+.hide-spinner::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Hide spinner for Firefox */
+.hide-spinner[type="number"] {
+  -moz-appearance: textfield;
+}

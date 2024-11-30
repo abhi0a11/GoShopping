@@ -5,26 +5,24 @@ import sofa2 from "../assets/sofa_single.png";
 import sofa3 from "../assets/single_sofa.png";
 import sofa4 from "../assets/sofa_blue.png";
 import bed from "../assets/bed.png";
-import { Context } from "../main";
+import { Context, server } from "../main";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 const AllProducsFurniture = () => {
   const [data, setData] = useState([]);
-  const { loading, setLoading } = useContext(Context);
   useEffect(() => {
     const fetchData = async () => {
-      setLoading(true);
       try {
-        const res = await axios.get("https://dummyjson.com/products/?limit=0");
-
-        const fur = res.data.products.filter(
-          entry => entry.category === "furniture"
+        const res = await axios.get(
+          `${server}/api/v1/admin/allproducts/furniture`,
+          {
+            withCredentials: true,
+          }
         );
-        setData(fur);
-        setLoading(false);
+        setData(res.data);
       } catch (error) {
-        setLoading(false);
-        toast.error(error);
+        toast.error(error.response.data.message);
       }
     };
     fetchData();

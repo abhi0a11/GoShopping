@@ -14,24 +14,22 @@ import axios from "axios";
 import Card from "../Card";
 import Card1 from "../Card1";
 import "./products.css";
-import { Context } from "../../main";
+import { Context, server } from "../../main";
 
 const Furniture = () => {
   const [data, setData] = useState([]);
-  const { loading, setLoading } = useContext(Context);
   useEffect(() => {
     const fetchData = async () => {
-      setLoading(true);
       try {
-        const res = await axios.get("https://dummyjson.com/products/?limit=0");
-        const fur = res.data.products.filter(
-          entry => entry.category === "furniture"
+        const res = await axios.get(
+          `${server}/api/v1/admin/allproducts/furniture`,
+          {
+            withCredentials: true,
+          }
         );
-        setData(fur);
-        setLoading(false);
+        setData(res.data);
       } catch (error) {
-        setLoading(false);
-        toast.error(error);
+        toast.error(error.response.data.message);
       }
     };
     fetchData();

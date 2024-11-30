@@ -7,9 +7,10 @@ import {
 } from "react-icons/bi";
 
 import "./products.css";
-import { Context } from "../../main";
+import { Context, server } from "../../main";
 import axios from "axios";
 import Card from "../Card";
+import toast from "react-hot-toast";
 
 const Decoration = () => {
   const ScrollRef = useRef(0);
@@ -25,21 +26,18 @@ const Decoration = () => {
   };
 
   const [data, setData] = useState([]);
-  const { loading, setLoading } = useContext(Context);
   useEffect(() => {
     const fetchData = async () => {
-      setLoading(true);
       try {
-        const res = await axios.get("https://dummyjson.com/products/?limit=0");
-        const fur = res.data.products.filter(
-          entry => entry.category === "home-decoration"
+        const res = await axios.get(
+          `${server}/api/v1/admin/allproducts/decoration`,
+          {
+            withCredentials: true,
+          }
         );
-        setData(fur);
-        setLoading(false);
+        setData(res.data);
       } catch (error) {
-        setLoading(false);
-        console.log("error hai bhai", error);
-        toast.error(error);
+        toast.error(error.response.data.message);
       }
     };
     fetchData();

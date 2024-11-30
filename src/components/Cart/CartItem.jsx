@@ -10,8 +10,8 @@ const CartItem = ({ Item, setTotal, total }) => {
   const HandleIncr = async Item => {
     try {
       for (const prod of newUser?.cart) {
-        if (prod.title === Item.title) {
-          setTotal(total + Math.round(Item.price * 40));
+        if (prod.name === Item.name) {
+          setTotal(total + Math.round(Item.price));
           prod.cnt = prod.cnt + 1;
         }
       }
@@ -20,13 +20,12 @@ const CartItem = ({ Item, setTotal, total }) => {
       newUser.cart = newCart;
 
       const { data } = await axios.put(
-        `${server}/api/v1/user/add/${Item.title}`,
+        `${server}/api/v1/user/add/${Item.name}`,
         newUser,
         { withCredentials: true }
       );
       setUser(newUser);
       setNewUser(newUser);
-      toast.success(data);
     } catch (error) {
       console.log(error);
       toast.error(error.response.data.message);
@@ -35,8 +34,8 @@ const CartItem = ({ Item, setTotal, total }) => {
   const HandleDecr = async Item => {
     try {
       for (const prod of newUser?.cart) {
-        if (prod.title === Item.title) {
-          setTotal(total - Math.round(Item.price * 40));
+        if (prod.name === Item.name) {
+          setTotal(total - Math.round(Item.price));
           prod.cnt = prod.cnt - 1;
         }
       }
@@ -45,13 +44,12 @@ const CartItem = ({ Item, setTotal, total }) => {
       newUser.cart = newCart;
 
       const { data } = await axios.put(
-        `${server}/api/v1/user/add/${Item.title}`,
+        `${server}/api/v1/user/add/${Item.name}`,
         newUser,
         { withCredentials: true }
       );
       setUser(newUser);
       setNewUser(newUser);
-      toast.success(data);
     } catch (error) {
       console.log(error);
       toast.error(error.response.data.message);
@@ -59,12 +57,16 @@ const CartItem = ({ Item, setTotal, total }) => {
   };
   return (
     <div className={`${styles.cartItem_container}`}>
-      <img src={Item.images[0]} alt="" className={`${styles.cart_img}`} />
+      <img src={Item.pictures[0]} alt="" className={`${styles.cart_img}`} />
       <div className="d-flex justify-content-between w-100">
         <div className={`${styles.metadata}`}>
-          <h6>{Item.title}</h6>
-          <div className={`${styles.txt} text-success`}>in stock</div>
-          <div className={`${styles.txt}`}>Color</div>
+          <h6>{Item.name}</h6>
+          {Item.stock > 0 ? (
+            <div className={`${styles.txt} text-success`}>in stock</div>
+          ) : (
+            <div className={`${styles.txt} text-danger`}>out of stock</div>
+          )}
+
           <div className={`${styles.txt} pe-5`}>{Item.description}</div>
           <div className={`${styles.btn_grp} ${styles.txt}`}>
             <button className={`btn px-1`} onClick={() => HandleDecr(Item)}>
@@ -77,9 +79,7 @@ const CartItem = ({ Item, setTotal, total }) => {
           </div>
         </div>
         <p className={`${styles.metadata} me-3 `}>
-          <div className={`${styles.pr}`}>
-            &#8377;{Math.round(Item.price * 40)}
-          </div>
+          <div className={`${styles.pr}`}>&#8377;{Math.round(Item.price)}</div>
         </p>
       </div>
     </div>

@@ -28,7 +28,16 @@ bg-color-primary {
   background-color: rgb(245, 245, 245) !important;
   color: rgb(35, 49, 66) !important;
 }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
 ::-webkit-scrollbar {
   width: 8px;
   height: 0px;

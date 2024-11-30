@@ -24,10 +24,8 @@ const Electronics = () => {
   };
 
   const [data, setData] = useState([]);
-  const { loading, setLoading } = useContext(Context);
   useEffect(() => {
     const fetchData = async () => {
-      setLoading(true);
       try {
         const res = await axios.get("https://dummyjson.com/products/?limit=0");
         console.log(res.data.products);
@@ -36,10 +34,7 @@ const Electronics = () => {
         );
         setData(fur);
         console.log(fur);
-        setLoading(false);
       } catch (error) {
-        setLoading(false);
-        console.log("error hai bhai", error);
         toast.error(error);
       }
     };
