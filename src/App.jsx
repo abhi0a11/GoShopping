@@ -36,10 +36,11 @@ function App() {
     setRole,
     setToken,
     role,
+    setCartItemCnt,
   } = useContext(Context);
 
   useEffect(() => {
-    const fetchUserData = async () => {
+    (async () => {
       setLoading(true);
       try {
         const { data } = await axios.get(`${server}/api/v1/auth/me`, {
@@ -50,13 +51,13 @@ function App() {
         setIsAuthenticated(true);
         setRole(data.user.role);
         setToken(data.token);
+        setCartItemCnt(data?.cart?.length);
       } catch (error) {
         setUser({});
         setLoading(false);
         setIsAuthenticated(false);
       }
-    };
-    fetchUserData();
+    })();
   }, []);
 
   return (

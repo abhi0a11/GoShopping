@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Context, server } from "../main";
 import axios from "axios";
 import toast from "react-hot-toast";
@@ -14,7 +14,12 @@ const Navbar = ({ role }) => {
     loading,
     setLoading,
     cartItemCnt,
+    user,
+    setCartItemCnt,
   } = useContext(Context);
+  useEffect(() => {
+    setCartItemCnt(user?.cart?.length || 0);
+  });
   const logoutHandler = async () => {
     setLoading(true);
     try {
