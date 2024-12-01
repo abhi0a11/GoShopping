@@ -19,7 +19,7 @@ import { Context, server } from "../../main";
 const Furniture = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
-    const fetchData = async () => {
+    (async () => {
       try {
         const res = await axios.get(
           `${server}/api/v1/admin/allproducts/furniture`,
@@ -31,20 +31,15 @@ const Furniture = () => {
       } catch (error) {
         toast.error(error.response.data.message);
       }
-    };
-    fetchData();
+    })();
   }, []);
 
   const ScrollRef = useRef(0);
   const handleScrollLeft = scrollOfset => {
-    console.log("left trigerred", ScrollRef.current.scrollLeft);
     ScrollRef.current.scrollLeft -= scrollOfset;
-    console.log("left trigerred", ScrollRef.current.scrollLeft);
   };
   const handleScrollRight = scrollOfset => {
-    // console.log("right trigerred", ScrollRef.current.scrollRight);
     ScrollRef.current.scrollLeft += scrollOfset;
-    console.log("right trigerred", ScrollRef.current.scrollRight);
   };
   return (
     <div className="main_cont" id="furniture">
@@ -65,7 +60,7 @@ const Furniture = () => {
         <button
           className="position-absolute top-50 start-0 z-2 translate-middle mt-n5 d-none d-sm-inline-flex rounded-circle"
           style={{ marginLeft: "24px", border: "none" }}
-          onClick={() => handleScrollLeft(1000)}
+          onClick={() => handleScrollLeft(400)}
         >
           <BiSolidChevronLeftCircle
             className="display-5"
@@ -75,7 +70,7 @@ const Furniture = () => {
         <button
           className="position-absolute top-50 start-100 z-2 translate-middle mt-n5 d-none d-sm-inline-flex rounded-circle"
           style={{ marginLeft: "-24px", border: "none" }}
-          onClick={() => handleScrollRight(1000)}
+          onClick={() => handleScrollRight(400)}
         >
           <BiSolidChevronRightCircle
             className="display-5"
