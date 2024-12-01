@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import toast from "react-hot-toast";
 import { FaAngleRight } from "react-icons/fa";
 import {
@@ -6,15 +6,10 @@ import {
   BiSolidChevronLeftCircle,
 } from "react-icons/bi";
 
-import sofa2 from "../../assets/sofa_single.png";
-import sofa3 from "../../assets/single_sofa.png";
-import sofa4 from "../../assets/sofa_blue.png";
-import bed from "../../assets/bed.png";
 import axios from "axios";
 import Card from "../Card";
-import Card1 from "../Card1";
 import "./products.css";
-import { Context, server } from "../../main";
+import { server } from "../../main";
 
 const Furniture = () => {
   const [data, setData] = useState([]);
@@ -81,11 +76,6 @@ const Furniture = () => {
           {data.map((entry, i) => (
             <Card key={i} entry={entry}></Card>
           ))}
-
-          <Card1 pic={sofa2}></Card1>
-          <Card1 pic={sofa3}></Card1>
-          <Card1 pic={sofa4}></Card1>
-          <Card1 pic={bed}></Card1>
         </div>
       </section>
     </div>

@@ -8,8 +8,13 @@ import { Link } from "react-scroll";
 import { FaShoppingCart } from "react-icons/fa";
 const Navbar = ({ role }) => {
   const navigate = useNavigate();
-  const { isAuthenticated, setIsAuthenticated, loading, setLoading } =
-    useContext(Context);
+  const {
+    isAuthenticated,
+    setIsAuthenticated,
+    loading,
+    setLoading,
+    cartItemCnt,
+  } = useContext(Context);
   const logoutHandler = async () => {
     setLoading(true);
     try {
@@ -167,7 +172,7 @@ const Navbar = ({ role }) => {
                         >
                           <FaShoppingCart />
                           <span className="position-absolute top-0 end-0 bag-item-count">
-                            {2}
+                            {cartItemCnt}
                           </span>
                         </button>
                       </div>

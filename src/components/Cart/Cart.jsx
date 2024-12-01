@@ -3,7 +3,7 @@ import styles from "./Cart.module.css";
 import CartItem from "./CartItem";
 import { Context } from "../../main";
 const Cart = () => {
-  const { user } = useContext(Context);
+  const { user, setCartItemCnt } = useContext(Context);
   const [total, setTotal] = useState(0);
   useEffect(() => {
     const calculateTotal = () => {
@@ -12,6 +12,7 @@ const Cart = () => {
         t += Math.round(data.price) * data.cnt;
       });
       setTotal(t);
+      setCartItemCnt(user?.cart?.length);
     };
     calculateTotal();
   }, [user]);

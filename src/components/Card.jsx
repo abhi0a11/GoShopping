@@ -5,7 +5,8 @@ import axios from "axios";
 import toast from "react-hot-toast";
 
 const Card = ({ entry }) => {
-  const { user, setUser, setLoading, loading } = useContext(Context);
+  const { user, setUser, setLoading, loading, setCartItemCnt } =
+    useContext(Context);
   const HandleAddToCart = async () => {
     setLoading(true);
     try {
@@ -37,6 +38,7 @@ const Card = ({ entry }) => {
         );
         toast.success(data);
         setLoading(false);
+        setCartItemCnt(newUser.cart.length);
         setUser(newUser);
       }
     } catch (error) {
@@ -46,9 +48,9 @@ const Card = ({ entry }) => {
   };
   return (
     <>
-      <div className="card d-inline-block">
+      <div className="card d-flex justify-content-evenly">
         <img src={entry.pictures[0]} className="card-img-top" alt="..." />
-        <div className="card-body">
+        <div className="card-body d-flex flex-column justify-content-end align-items-baseline">
           <h5 className="card-title">{entry.name}</h5>
           <p className="card-text">{Math.round(entry.price).toFixed(2)} rs</p>
           <button

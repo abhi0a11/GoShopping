@@ -5,7 +5,7 @@ import { Context, server } from "../../main";
 import axios from "axios";
 import toast from "react-hot-toast";
 const CartItem = ({ Item, setTotal, total }) => {
-  const { user, setUser } = useContext(Context);
+  const { user, setUser, setCartItemCnt } = useContext(Context);
   const [newUser, setNewUser] = useState(user);
   const HandleIncr = async Item => {
     try {
@@ -24,6 +24,7 @@ const CartItem = ({ Item, setTotal, total }) => {
         newUser,
         { withCredentials: true }
       );
+      setCartItemCnt(newCart.length);
       setUser(newUser);
       setNewUser(newUser);
     } catch (error) {
@@ -48,6 +49,8 @@ const CartItem = ({ Item, setTotal, total }) => {
         newUser,
         { withCredentials: true }
       );
+      setCartItemCnt(newCart.length);
+      console.log(newCart.length);
       setUser(newUser);
       setNewUser(newUser);
     } catch (error) {
