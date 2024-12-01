@@ -18,6 +18,7 @@ const AppWrapper = () => {
   const [loading, setLoading] = useState(false);
   const [user, setUser] = useState({});
   const [role, setRole] = useState("");
+  const [cartItemCnt, setCartItemCnt] = useState(0);
   const [token, setToken] = useState("");
 
   return (
@@ -33,6 +34,8 @@ const AppWrapper = () => {
         setRole,
         token,
         setToken,
+        cartItemCnt,
+        setCartItemCnt,
       }}
     >
       <App />

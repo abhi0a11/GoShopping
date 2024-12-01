@@ -15,14 +15,10 @@ import toast from "react-hot-toast";
 const Decoration = () => {
   const ScrollRef = useRef(0);
   const handleScrollLeft = scrollOfset => {
-    console.log("left trigerred", ScrollRef.current.scrollLeft);
     ScrollRef.current.scrollLeft -= scrollOfset;
-    console.log("left trigerred", ScrollRef.current.scrollLeft);
   };
   const handleScrollRight = scrollOfset => {
-    // console.log("right trigerred", ScrollRef.current.scrollRight);
     ScrollRef.current.scrollLeft += scrollOfset;
-    console.log("right trigerred", ScrollRef.current.scrollRight);
   };
 
   const [data, setData] = useState([]);

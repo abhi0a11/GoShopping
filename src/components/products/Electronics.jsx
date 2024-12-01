@@ -13,14 +13,10 @@ import { Context } from "../../main";
 const Electronics = () => {
   const ScrollRef = useRef(0);
   const handleScrollLeft = scrollOfset => {
-    console.log("left trigerred", ScrollRef.current.scrollLeft);
     ScrollRef.current.scrollLeft -= scrollOfset;
-    console.log("left trigerred", ScrollRef.current.scrollLeft);
   };
   const handleScrollRight = scrollOfset => {
-    // console.log("right trigerred", ScrollRef.current.scrollRight);
     ScrollRef.current.scrollLeft += scrollOfset;
-    console.log("right trigerred", ScrollRef.current.scrollRight);
   };
 
   const [data, setData] = useState([]);
@@ -28,12 +24,10 @@ const Electronics = () => {
     const fetchData = async () => {
       try {
         const res = await axios.get("https://dummyjson.com/products/?limit=0");
-        console.log(res.data.products);
         const fur = res.data.products.filter(
           entry => entry.category === "electronics"
         );
         setData(fur);
-        console.log(fur);
       } catch (error) {
         toast.error(error);
       }

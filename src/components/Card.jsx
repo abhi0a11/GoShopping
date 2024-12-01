@@ -17,10 +17,8 @@ const Card = ({ entry }) => {
         let product = entry;
         let isPresent = 0;
         for (const prod of newUser?.cart) {
-          // console.log(prod);
           if (prod.name === entry.name) {
             prod.cnt = prod.cnt + 1;
-            console.log("yes");
             setUser(newUser);
             isPresent = 1;
             break;
@@ -30,7 +28,6 @@ const Card = ({ entry }) => {
           product.cnt = 1;
           newUser.cart.push(product);
         }
-        console.log(newUser.cart);
         const { data } = await axios.put(
           `${server}/api/v1/user/add/${entry.name}`,
           newUser,

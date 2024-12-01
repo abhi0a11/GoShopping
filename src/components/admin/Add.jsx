@@ -87,11 +87,9 @@ const Add = () => {
         }
       );
 
-      console.log(data);
       toast.success(data);
       setLoading(false);
     } catch (error) {
-      console.log(error);
       setLoading(false);
       error.response?.data?.auth == 0 &&
         setIsAuthenticated(error.response.data.auth);

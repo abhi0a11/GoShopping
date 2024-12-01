@@ -28,7 +28,6 @@ const CartItem = ({ Item, setTotal, total }) => {
       setUser(newUser);
       setNewUser(newUser);
     } catch (error) {
-      console.log(error);
       toast.error(error.response.data.message);
     }
   };
@@ -50,11 +49,9 @@ const CartItem = ({ Item, setTotal, total }) => {
         { withCredentials: true }
       );
       setCartItemCnt(newCart.length);
-      console.log(newCart.length);
       setUser(newUser);
       setNewUser(newUser);
     } catch (error) {
-      console.log(error);
       toast.error(error.response.data.message);
     }
   };

@@ -28,7 +28,6 @@ const Login = () => {
           withCredentials: true,
         }
       );
-      console.log(data);
       setLoading(false);
       setIsAuthenticated(true);
       toast.success(data.message);
@@ -37,7 +36,6 @@ const Login = () => {
       toast.error(error.response.data.message);
       setIsAuthenticated(false);
       setLoading(false);
-      console.error(error);
     }
   };
   if (isAuthenticated)

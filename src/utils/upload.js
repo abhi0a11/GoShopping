@@ -14,7 +14,6 @@ export const uploadFiles = async files => {
     let res = await uploadToCloudinary(formData);
     uploaded.push(res.secure_url);
   }
-  // console.log("these are uploaded files ", uploaded);
   return uploaded;
 };
 const uploadToCloudinary = async formData => {
@@ -24,8 +23,6 @@ const uploadToCloudinary = async formData => {
       .then(({ data }) => {
         resolve(data);
       })
-      .catch(err => {
-        console.log(err);
-      });
+      .catch(err => {});
   });
 };

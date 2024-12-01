@@ -73,14 +73,12 @@ const Update = ({ Name }) => {
     try {
       // upload files
       const uploaded_files = await uploadFiles(files);
-      console.log("adter uploading", uploaded_files);
       // break input string into array
       let c = color.length ? color.split(",").map(item => item.trim()) : [];
       let w = wood.length ? wood.split(",").map(item => item.trim()) : [];
       let cl = cloth.length ? cloth.split(",").map(item => item.trim()) : [];
 
       const payload = createPayload(c, w, cl, uploaded_files);
-      // console.log(payload);
 
       const { data } = await axios.put(
         `${server}/api/v1/admin/update/${Name}`,

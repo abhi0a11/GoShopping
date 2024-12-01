@@ -2,7 +2,6 @@ import React from "react";
 import Add from "./Add.jsx";
 import "./admin.css";
 import { useState } from "react";
-import { useEffect } from "react";
 
 import Search from "./Search.jsx";
 import DeleteProduct from "./DeleteProduct.jsx";
@@ -10,9 +9,6 @@ import AdminHeuristics from "./AdminHeuristics.jsx";
 
 const AdminFeatures = () => {
   const [formAction, setFormAction] = useState(0);
-  useEffect(() => {
-    console.log(formAction);
-  }, []);
   return (
     <div
       className="p-3 p-md-5 m-md-5 text-center bg-body-tertiary bg-color-primary d-flex justify-content-center rounded-5 admin_container"
