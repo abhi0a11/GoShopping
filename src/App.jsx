@@ -76,7 +76,7 @@ function App() {
                   <Swiper1 dir={false}></Swiper1>
                   <Furniture></Furniture>
                   {/* <Electronics></Electronics> */}
-                  <KitchenAppliances></KitchenAppliances>
+                  <KitchenAppliances />
                   <Swiper1 dir={true}></Swiper1>
                   <Decoration></Decoration>
                   <Footer></Footer>
@@ -132,22 +132,42 @@ function App() {
           <Route
             exact
             path="/allProductsFurniture"
-            element={<AllProducsFurniture />}
+            element={
+              <>
+                <Navbar role={"User"}></Navbar>
+                <AllProducsFurniture />
+              </>
+            }
           />
           <Route
             exact
             path="/allProductsElectronics"
-            element={<AllProducsElectronics></AllProducsElectronics>}
+            element={
+              <>
+                <Navbar role={"User"}></Navbar>
+                <AllProducsElectronics />
+              </>
+            }
           />
           <Route
             exact
             path="/allProductsDecoration"
-            element={<AllProducsDecoration></AllProducsDecoration>}
+            element={
+              <>
+                <Navbar role={"User"}></Navbar>
+                <AllProducsDecoration />
+              </>
+            }
           />
           <Route
             exact
             path="/allProductsKitchen"
-            element={<AllProducsKitchen></AllProducsKitchen>}
+            element={
+              <>
+                <Navbar role={"User"}></Navbar>
+                <AllProducsKitchen />
+              </>
+            }
           />
         </Routes>
         <Toaster></Toaster>

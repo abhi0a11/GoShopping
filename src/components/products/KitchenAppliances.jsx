@@ -25,7 +25,7 @@ const KitchenAppliances = () => {
   };
   const [data, setData] = useState([]);
   useEffect(() => {
-    const fetchData = async () => {
+    (async () => {
       try {
         const res = await axios.get(
           `${server}/api/v1/admin/allproducts/kitchen-appliances`,
@@ -37,8 +37,7 @@ const KitchenAppliances = () => {
       } catch (error) {
         toast.error(error.response.data.message);
       }
-    };
-    fetchData();
+    })();
   }, []);
 
   return (
@@ -49,8 +48,8 @@ const KitchenAppliances = () => {
         </h3>
         <a
           href="/allProductsKitchen"
-          className="more_btn"
-          style={{ marginRight: "24px" }}
+          className="more_btn mx-5 mb-3"
+          style={{ marginRight: "24px", padding: "20px 0px 0px 0px" }}
         >
           see all
           <FaAngleRight />

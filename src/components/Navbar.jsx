@@ -154,7 +154,7 @@ const Navbar = ({ role }) => {
                     </li>
                     <li className="nav-item me-lg-n2 me-xl-0 d-flex">
                       {/* <!-- Button group --> */}
-                      <div className="d-flex">
+                      <div className="d-flex position-relative">
                         {/* <!-- Cart button --> */}
                         <button
                           type="button"
@@ -166,6 +166,9 @@ const Navbar = ({ role }) => {
                           onClick={() => navigate("/cart")}
                         >
                           <FaShoppingCart />
+                          <span className="position-absolute top-0 end-0 bag-item-count">
+                            {2}
+                          </span>
                         </button>
                       </div>
                     </li>

@@ -154,3 +154,17 @@ input[type="number"] {
     flex: 1;
   }
 }
+.bag-item-count {
+  background-color: #f16565;
+  white-space: nowrap;
+  text-align: center;
+  line-height: 13px;
+  padding: 0 5px;
+  height: max-content;
+  width: max-content;
+  border-radius: 50%;
+  font-size: 9px;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}

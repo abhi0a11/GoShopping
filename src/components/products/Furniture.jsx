@@ -49,8 +49,8 @@ const Furniture = () => {
         </h3>
         <a
           href="/allProductsFurniture"
-          className="more_btn"
-          style={{ marginRight: "24px" }}
+          className="more_btn mx-5 mb-3"
+          style={{ marginRight: "24px", padding: "20px 0px 0px 0px" }}
         >
           see all
           <FaAngleRight />
