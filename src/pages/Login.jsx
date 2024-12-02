@@ -16,7 +16,7 @@ const Login = () => {
     useContext(Context);
   const submitHandler = async e => {
     e.preventDefault();
-    // setLoading(true);
+    setLoading(true);
     try {
       const { data } = await axios.post(
         `${server}/api/v1/auth/login`,
@@ -97,7 +97,7 @@ const Login = () => {
               <option value="Admin">Admin</option>
               required
             </select>
-            <button type="submit" className="form_btn">
+            <button type="submit" className="form_btn" disabled={loading}>
               Login
             </button>
             <h6 className="mt-3 mb-1">New User?</h6>

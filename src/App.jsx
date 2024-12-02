@@ -14,7 +14,7 @@ import {
 } from "react-router-dom";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import { Toaster } from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 import { Context, server } from "./main";
 import Admin from "./pages/Admin";
 
@@ -27,7 +27,7 @@ import KitchenAppliances from "./components/products/KitchenAppliances";
 import Decoration from "./components/products/Decoration";
 import Cart from "./components/Cart/Cart";
 
-function App({ furData, ElecData, decoData, kitData }) {
+function App() {
   const {
     isAuthenticated,
     setIsAuthenticated,
@@ -39,6 +39,29 @@ function App({ furData, ElecData, decoData, kitData }) {
     setCartItemCnt,
   } = useContext(Context);
 
+  const [furData, setFurData] = useState([]);
+  const [kitData, setKitData] = useState([]);
+  const [ElecData, setElecData] = useState([]);
+  const [decoData, setDecoData] = useState([]);
+  useEffect(() => {
+    (async () => {
+      try {
+        const res = await axios.get(`${server}/api/v1/admin/allproducts`, {
+          withCredentials: true,
+        });
+        let data = res.data.filter(d => d.category === "furniture");
+        setFurData(data);
+        data = res.data.filter(d => d.category === "kitchen-appliances");
+        setKitData(data);
+        data = res.data.filter(d => d.category === "electronics");
+        setElecData(data);
+        data = res.data.filter(d => d.category === "decoration");
+        setDecoData(data);
+      } catch (error) {
+        toast.error(error.response.data.message);
+      }
+    })();
+  }, []);
   useEffect(() => {
     (async () => {
       setLoading(true);
