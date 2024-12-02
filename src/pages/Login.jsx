@@ -16,7 +16,7 @@ const Login = () => {
     useContext(Context);
   const submitHandler = async e => {
     e.preventDefault();
-    setLoading(true);
+    // setLoading(true);
     try {
       const { data } = await axios.post(
         `${server}/api/v1/auth/login`,
