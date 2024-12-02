@@ -46,9 +46,12 @@ function App() {
   useEffect(() => {
     (async () => {
       try {
+        console.log("before call");
         const res = await axios.get(`${server}/api/v1/admin/allproducts`, {
           withCredentials: true,
         });
+
+        console.log("after call");
         let data = res.data.filter(d => d.category === "furniture");
         setFurData(data);
         data = res.data.filter(d => d.category === "kitchen-appliances");
