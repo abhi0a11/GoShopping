@@ -8,7 +8,7 @@ import {
 import Card from "../Card";
 import "./products.css";
 import axios from "axios";
-import { Context, server } from "../../main";
+import { server } from "../../main";
 import toast from "react-hot-toast";
 
 const KitchenAppliances = () => {
@@ -21,7 +21,7 @@ const KitchenAppliances = () => {
   };
   const [data, setData] = useState([]);
   useEffect(() => {
-    (async () => {
+    const fetchProducts = async () => {
       try {
         const res = await axios.get(
           `${server}/api/v1/admin/allproducts/kitchen-appliances`,
@@ -33,7 +33,8 @@ const KitchenAppliances = () => {
       } catch (error) {
         toast.error(error.response.data.message);
       }
-    })();
+    };
+    fetchProducts();
   }, []);
 
   return (

@@ -23,7 +23,7 @@ const Decoration = () => {
 
   const [data, setData] = useState([]);
   useEffect(() => {
-    (async () => {
+    const fetchProducts = async () => {
       try {
         const res = await axios.get(
           `${server}/api/v1/admin/allproducts/decoration`,
@@ -35,7 +35,8 @@ const Decoration = () => {
       } catch (error) {
         toast.error(error.response.data.message);
       }
-    })();
+    };
+    fetchProducts();
   }, []);
 
   return (

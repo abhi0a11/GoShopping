@@ -14,7 +14,7 @@ import { server } from "../../main";
 const Furniture = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
-    (async () => {
+    const fetchProducts = async () => {
       try {
         const res = await axios.get(
           `${server}/api/v1/admin/allproducts/furniture`,
@@ -26,7 +26,8 @@ const Furniture = () => {
       } catch (error) {
         toast.error(error.response.data.message);
       }
-    })();
+    };
+    fetchProducts();
   }, []);
 
   const ScrollRef = useRef(0);
