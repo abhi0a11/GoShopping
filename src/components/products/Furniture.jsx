@@ -1,35 +1,14 @@
-import React, { useEffect, useRef, useState } from "react";
-import toast from "react-hot-toast";
+import React, { useRef } from "react";
 import { FaAngleRight } from "react-icons/fa";
 import {
   BiSolidChevronRightCircle,
   BiSolidChevronLeftCircle,
 } from "react-icons/bi";
 
-import axios from "axios";
 import Card from "../Card";
 import "./products.css";
-import { server } from "../../main";
 
-const Furniture = () => {
-  const [data, setData] = useState([]);
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const res = await axios.get(
-          `${server}/api/v1/admin/allproducts/furniture`,
-          {
-            withCredentials: true,
-          }
-        );
-        setData(res.data);
-      } catch (error) {
-        toast.error(error.response.data.message);
-      }
-    };
-    fetchProducts();
-  }, []);
-
+const Furniture = ({ furData }) => {
   const ScrollRef = useRef(0);
   const handleScrollLeft = scrollOfset => {
     ScrollRef.current.scrollLeft -= scrollOfset;
@@ -74,7 +53,7 @@ const Furniture = () => {
           />
         </button>
         <div className="d-flex scroll_container" ref={ScrollRef}>
-          {data.map((entry, i) => (
+          {furData.map((entry, i) => (
             <Card key={i} entry={entry}></Card>
           ))}
         </div>

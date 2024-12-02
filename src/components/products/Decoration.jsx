@@ -7,12 +7,9 @@ import {
 } from "react-icons/bi";
 
 import "./products.css";
-import { Context, server } from "../../main";
-import axios from "axios";
 import Card from "../Card";
-import toast from "react-hot-toast";
 
-const Decoration = () => {
+const Decoration = ({ decoData }) => {
   const ScrollRef = useRef(0);
   const handleScrollLeft = scrollOfset => {
     ScrollRef.current.scrollLeft -= scrollOfset;
@@ -20,24 +17,6 @@ const Decoration = () => {
   const handleScrollRight = scrollOfset => {
     ScrollRef.current.scrollLeft += scrollOfset;
   };
-
-  const [data, setData] = useState([]);
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const res = await axios.get(
-          `${server}/api/v1/admin/allproducts/decoration`,
-          {
-            withCredentials: true,
-          }
-        );
-        setData(res.data);
-      } catch (error) {
-        toast.error(error.response.data.message);
-      }
-    };
-    fetchProducts();
-  }, []);
 
   return (
     <div className="main_cont" id="Decoration">
@@ -76,7 +55,7 @@ const Decoration = () => {
           />
         </button>
         <div className="d-flex scroll_container" ref={ScrollRef}>
-          {data.map((entry, i) => (
+          {decoData.map((entry, i) => (
             <Card key={i} entry={entry}></Card>
           ))}
           {/* <Card pic={bed}></Card>

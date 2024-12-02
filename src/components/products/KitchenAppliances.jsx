@@ -7,11 +7,8 @@ import {
 
 import Card from "../Card";
 import "./products.css";
-import axios from "axios";
-import { server } from "../../main";
-import toast from "react-hot-toast";
 
-const KitchenAppliances = () => {
+const KitchenAppliances = ({ kitData }) => {
   const ScrollRef = useRef(0);
   const handleScrollLeft = scrollOfset => {
     ScrollRef.current.scrollLeft -= scrollOfset;
@@ -19,23 +16,6 @@ const KitchenAppliances = () => {
   const handleScrollRight = scrollOfset => {
     ScrollRef.current.scrollLeft += scrollOfset;
   };
-  const [data, setData] = useState([]);
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const res = await axios.get(
-          `${server}/api/v1/admin/allproducts/kitchen-appliances`,
-          {
-            withCredentials: true,
-          }
-        );
-        setData(res.data);
-      } catch (error) {
-        toast.error(error.response.data.message);
-      }
-    };
-    fetchProducts();
-  }, []);
 
   return (
     <div className="main_cont" id="KitchenAppliances">
@@ -74,7 +54,7 @@ const KitchenAppliances = () => {
           />
         </button>
         <div className="d-flex scroll_container" ref={ScrollRef}>
-          {data.map((entry, i) => (
+          {kitData.map((entry, i) => (
             <Card key={i} entry={entry}></Card>
           ))}
         </div>

@@ -8,9 +8,7 @@ import {
 
 import Card from "../Card";
 import "./products.css";
-import axios from "axios";
-import { Context } from "../../main";
-const Electronics = () => {
+const Electronics = ({ ElecData }) => {
   const ScrollRef = useRef(0);
   const handleScrollLeft = scrollOfset => {
     ScrollRef.current.scrollLeft -= scrollOfset;
@@ -18,22 +16,6 @@ const Electronics = () => {
   const handleScrollRight = scrollOfset => {
     ScrollRef.current.scrollLeft += scrollOfset;
   };
-
-  const [data, setData] = useState([]);
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await axios.get("https://dummyjson.com/products/?limit=0");
-        const fur = res.data.products.filter(
-          entry => entry.category === "electronics"
-        );
-        setData(fur);
-      } catch (error) {
-        toast.error(error);
-      }
-    };
-    fetchData();
-  }, []);
 
   return (
     <div className="main_cont" id="electronics">
@@ -70,22 +52,9 @@ const Electronics = () => {
           />
         </button>
         <div className="d-flex scroll_container" ref={ScrollRef}>
-          {/* <Card pic={bed}></Card>
-          <Card pic={sofa2}></Card>
-          <Card pic={sofa3}></Card>
-          <Card pic={sofa4}></Card>
-          <Card pic={sofa2}></Card>
-          <Card pic={sofa4}></Card>
-          <Card pic={bed}></Card>
-          <Card pic={sofa3}></Card>
-          <Card pic={sofa3}></Card>
-          <Card pic={sofa2}></Card>
-          <Card pic={bed}></Card>
-          <Card pic={sofa4}></Card>
-          <Card pic={sofa3}></Card>
-          <Card pic={sofa2}></Card>
-          <Card pic={bed}></Card>
-          <Card pic={sofa4}></Card> */}
+          {ElecData.map((entry, i) => (
+            <Card key={i} entry={entry} />
+          ))}
         </div>
       </section>
     </div>

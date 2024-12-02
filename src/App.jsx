@@ -27,7 +27,7 @@ import KitchenAppliances from "./components/products/KitchenAppliances";
 import Decoration from "./components/products/Decoration";
 import Cart from "./components/Cart/Cart";
 
-function App() {
+function App({ furData, ElecData, decoData, kitData }) {
   const {
     isAuthenticated,
     setIsAuthenticated,
@@ -75,11 +75,11 @@ function App() {
                   <Navbar role={"User"}></Navbar>
                   <Services></Services>
                   <Swiper1 dir={false}></Swiper1>
-                  <Furniture></Furniture>
-                  {/* <Electronics></Electronics> */}
-                  <KitchenAppliances />
+                  <Furniture furData={furData}></Furniture>
+                  {/* <Electronics ElecData={ElecData}></Electronics> */}
+                  <KitchenAppliances kitData={kitData} />
                   <Swiper1 dir={true}></Swiper1>
-                  <Decoration></Decoration>
+                  <Decoration decoData={decoData}></Decoration>
                   <Footer></Footer>
                 </>
               )
