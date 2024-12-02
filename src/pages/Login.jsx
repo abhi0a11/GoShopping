@@ -97,7 +97,7 @@ const Login = () => {
               <option value="Admin">Admin</option>
               required
             </select>
-            <button type="submit" className="form_btn" disabled={loading}>
+            <button type="submit" className="form_btn">
               Login
             </button>
             <h6 className="mt-3 mb-1">New User?</h6>
