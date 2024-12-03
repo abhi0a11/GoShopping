@@ -46,7 +46,12 @@ const Card = ({ entry }) => {
   return (
     <>
       <div className="card d-flex justify-content-evenly">
-        <img src={entry.pictures[0]} className="card-img-top" alt="..." />
+        <img
+          src={entry.pictures[0]}
+          className="card-img-top"
+          alt="..."
+          loading="lazy"
+        />
         <div className="card-body d-flex flex-column justify-content-end align-items-baseline">
           <h5 className="card-title">{entry.name}</h5>
           <p className="card-text">{Math.round(entry.price).toFixed(2)} rs</p>

@@ -46,12 +46,10 @@ function App() {
   useEffect(() => {
     (async () => {
       try {
-        console.log("before call");
         const res = await axios.get(`${server}/api/v1/admin/allproducts`, {
           withCredentials: true,
         });
 
-        console.log("after call");
         let data = res.data.filter(d => d.category === "furniture");
         setFurData(data);
         data = res.data.filter(d => d.category === "kitchen-appliances");
@@ -101,11 +99,11 @@ function App() {
                 <>
                   <Navbar role={"User"}></Navbar>
                   <Services></Services>
-                  <Swiper1 dir={false}></Swiper1>
+                  {/* <Swiper1 dir={false}></Swiper1> */}
                   <Furniture furData={furData}></Furniture>
                   {/* <Electronics ElecData={ElecData}></Electronics> */}
                   <KitchenAppliances kitData={kitData} />
-                  <Swiper1 dir={true}></Swiper1>
+                  {/* <Swiper1 dir={true}></Swiper1> */}
                   <Decoration decoData={decoData}></Decoration>
                   <Footer></Footer>
                 </>

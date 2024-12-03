@@ -1,11 +1,8 @@
 import React from "react";
-import sofa from "../assets/sofa.jpg";
-import sofa2 from "../assets/sofa_single.png";
-import sofa3 from "../assets/single_sofa.png";
-import sofa4 from "../assets/sofa_blue.png";
-import bed from "../assets/bed.png";
-import styles from "../components/Services.module.css";
-import Slick from "./Slick";
+import { LiaShippingFastSolid } from "react-icons/lia";
+import { FaUserShield } from "react-icons/fa6";
+import { TbTruckReturn } from "react-icons/tb";
+import { LuPhoneCall } from "react-icons/lu";
 const Services = () => {
   return (
     <>
@@ -39,7 +36,19 @@ const Services = () => {
             </div>
             <div className="carousel-inner">
               <div className="carousel-item active" data-bs-interval="10000">
-                <img src={sofa2} className="d-block w-100" alt="..." />
+                <img
+                  src="https://res.cloudinary.com/daiwqouix/raw/upload/q_auto,f_auto,w_800/v1733073973/ddrye7qjh4cazkm0awlv.png"
+                  srcSet="
+                    https://res.cloudinary.com/daiwqouix/raw/upload/q_auto,f_auto,w_400/v1733073973/ddrye7qjh4cazkm0awlv.png 400w,
+                    https://res.cloudinary.com/daiwqouix/raw/upload/q_auto,f_auto,w_800/v1733073973/ddrye7qjh4cazkm0awlv.png 800w,
+                    https://res.cloudinary.com/daiwqouix/raw/upload/q_auto,f_auto,w_1200/v1733073973/ddrye7qjh4cazkm0awlv.png 1200w,
+                    https://res.cloudinary.com/daiwqouix/raw/upload/q_auto,f_auto,w_1600/v1733073973/ddrye7qjh4cazkm0awlv.png 1600w
+                  "
+                  sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 800px"
+                  className="d-block"
+                  alt="..."
+                />
+
                 {/* <div className="carousel-caption d-none d-md-block">
                   <h5>First slide label</h5>
                   <p>
@@ -48,7 +57,18 @@ const Services = () => {
                 </div> */}
               </div>
               <div className="carousel-item" data-bs-interval="2000">
-                <img src={sofa3} className="d-block w-100" alt="..." />
+                <img
+                  src="https://res.cloudinary.com/daiwqouix/raw/upload/q_auto,f_auto,w_800/v1733074083/yzel2eumyeu53qbaxtuz.png"
+                  srcSet="
+                    https://res.cloudinary.com/daiwqouix/raw/upload/q_auto,f_auto,w_400/v1733074083/yzel2eumyeu53qbaxtuz.png 400w,
+                    https://res.cloudinary.com/daiwqouix/raw/upload/q_auto,f_auto,w_800/v1733074083/yzel2eumyeu53qbaxtuz.png 800w,
+                    https://res.cloudinary.com/daiwqouix/raw/upload/q_auto,f_auto,w_1200/v1733074083/yzel2eumyeu53qbaxtuz.png 1200w,
+                    https://res.cloudinary.com/daiwqouix/raw/upload/q_auto,f_auto,w_1600/v1733074083/yzel2eumyeu53qbaxtuz.png 1600w
+                  "
+                  sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 800px"
+                  className="d-block"
+                  alt="..."
+                />
                 {/* <div className="carousel-caption d-none d-md-block">
                   <h5>Second slide label</h5>
                   <p>
@@ -58,7 +78,19 @@ const Services = () => {
                 </div> */}
               </div>
               <div className="carousel-item">
-                <img src={sofa4} className="d-block w-100" alt="..." />
+                <img
+                  src="https://res.cloudinary.com/daiwqouix/raw/upload/q_auto,f_auto,w_800/v1733074161/at82pywqbkoo6c403iec.png"
+                  srcSet="
+                    https://res.cloudinary.com/daiwqouix/raw/upload/q_auto,f_auto,w_400/v1733074161/at82pywqbkoo6c403iec.png 400w,
+                    https://res.cloudinary.com/daiwqouix/raw/upload/q_auto,f_auto,w_800/v1733074161/at82pywqbkoo6c403iec.png 800w,
+                    https://res.cloudinary.com/daiwqouix/raw/upload/q_auto,f_auto,w_1200/v1733074161/at82pywqbkoo6c403iec.png 1200w,
+                    https://res.cloudinary.com/daiwqouix/raw/upload/q_auto,f_auto,w_1600/v1733074161/at82pywqbkoo6c403iec.png 1600w
+                  "
+                  sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 800px"
+                  className="d-block"
+                  alt="..."
+                />
+
                 {/* <div className="carousel-caption d-none d-md-block">
                   <h5>Third slide label</h5>
                   <p>
@@ -105,7 +137,7 @@ const Services = () => {
         <div className="row flex-lg-row-reverse align-items-center g-5 py-5">
           <div className="col-10 col-sm-8 col-lg-6">
             <img
-              src={sofa}
+              src="https://res.cloudinary.com/daiwqouix/raw/upload/q_auto,f_auto,w_800/v1733074161/at82pywqbkoo6c403iec.png"
               className="d-block mx-lg-auto img-fluid"
               alt="Bootstrap Themes"
               width="700"
@@ -115,7 +147,7 @@ const Services = () => {
           </div>
           <div className="col-lg-6">
             <h1 className="display-5 fw-bold text-body-emphasis lh-1 mb-3">
-              Responsive left-aligned hero with image
+              Most Seller Product
             </h1>
             <p className="lead">
               Quickly design and customize responsive mobile-first sites with
@@ -124,7 +156,10 @@ const Services = () => {
               extensive prebuilt components, and powerful JavaScript plugins.
             </p>
             <div className="d-grid gap-2 d-md-flex justify-content-md-start">
-              <button type="button" className="btn btn-primary btn-lg px-4 me-md-2">
+              <button
+                type="button"
+                className="btn btn-primary btn-lg px-4 me-md-2"
+              >
                 Primary
               </button>
               <button
@@ -138,6 +173,68 @@ const Services = () => {
         </div>
       </div> */}
 
+      {/*  */}
+
+      <div class="container">
+        <div class="row justify-content-around text-center">
+          <div class="card col" style={{ width: "18rem", background: "#fff" }}>
+            {/* <img class="card-img-top" src="..." alt="Card image cap" /> */}
+            <LiaShippingFastSolid
+              class="card-img-top"
+              style={{ fontSize: "8rem", padding: "10px", marginTop: "15px" }}
+            />
+            <div class="card-body">
+              <h5 class="card-title">Free Shiping</h5>
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+            </div>
+          </div>
+
+          <div class="card col" style={{ width: "18rem", background: "#fff" }}>
+            <FaUserShield
+              class="card-img-top"
+              style={{ fontSize: "7rem", padding: "15px", marginTop: "15px" }}
+            />
+            <div class="card-body">
+              <h5 class="card-title">Secure Payments</h5>
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+            </div>
+          </div>
+          <div class="card col" style={{ width: "18rem", background: "#fff" }}>
+            <TbTruckReturn
+              class="card-img-top"
+              style={{ fontSize: "8rem", padding: "10px", marginTop: "15px" }}
+            />
+            <div class="card-body">
+              <h5 class="card-title">30 days return</h5>
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+            </div>
+          </div>
+          <div class="card col" style={{ width: "18rem", background: "#fff" }}>
+            <LuPhoneCall
+              class="card-img-top"
+              style={{ fontSize: "8rem", padding: "15px", marginTop: "15px" }}
+            />
+            <div class="card-body">
+              <h5 class="card-title">27/7 support</h5>
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/*  */}
       {/* <div className="container my-5 bg-color-primary " id="Furniture">
         <div className="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
           <div className="col-lg-7 p-3 p-lg-5 pt-lg-3">
@@ -161,8 +258,8 @@ const Services = () => {
             <img className="rounded-lg-3" src={sofa} alt="" width="720" />
           </div>
         </div>
-      </div>
-      <div className="container my-5 bg-color-primary">
+      </div> */}
+      {/* <div className="container my-5 bg-color-primary">
         <div className="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
           <div className="col-lg-4 m-0 p-0 overflow-hidden shadow-lg">
             <img className="rounded-lg-3" src={sofa} alt="" width="720" />

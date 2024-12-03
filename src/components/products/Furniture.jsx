@@ -17,7 +17,7 @@ const Furniture = ({ furData }) => {
     ScrollRef.current.scrollLeft += scrollOfset;
   };
   return (
-    <div className="main_cont" id="furniture">
+    <div className="main_cont" id="furniture" style={{ marginTop: "36px" }}>
       <div className="d-flex justify-content-between">
         <h3 className="mx-5 mb-3" style={{ padding: "20px 0px 0px 0px" }}>
           Furniture{" "}

@@ -18,7 +18,7 @@ const KitchenAppliances = ({ kitData }) => {
   };
 
   return (
-    <div className="main_cont" id="KitchenAppliances">
+    <div className="container-fluid main_cont" id="KitchenAppliances">
       <div className="d-flex justify-content-between">
         <h3 className="mx-5 mb-3" style={{ padding: "20px 0px 0px 0px" }}>
           Kitchen Appliances{" "}
@@ -32,7 +32,7 @@ const KitchenAppliances = ({ kitData }) => {
           <FaAngleRight />
         </a>{" "}
       </div>
-      <section className="d-flex position-relative mx-5 pb-xxl-3 overflow-hidden">
+      <section className="d-flex position-relative mx-5 pb-xxl-3 flex-wrap">
         <button
           className="position-absolute top-50 start-0 z-2 translate-middle mt-n5 d-none d-sm-inline-flex rounded-circle"
           style={{ marginLeft: "24px", border: "none" }}

@@ -23,7 +23,9 @@ body {
   margin: 0;
   padding: 0;
 }
-
+bg-secondary-custom {
+  background: #eaeded !important;
+}
 bg-color-primary {
   background-color: rgb(245, 245, 245) !important;
   color: rgb(35, 49, 66) !important;
