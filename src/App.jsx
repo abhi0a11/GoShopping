@@ -72,6 +72,7 @@ function App() {
         const { data } = await axios.get(`${server}/api/v1/auth/me`, {
           withCredentials: true,
         });
+        console.log(data);
         setLoading(false);
         setUser(data.user);
         setIsAuthenticated(true);
