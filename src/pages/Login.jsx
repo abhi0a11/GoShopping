@@ -32,18 +32,18 @@ const Login = () => {
       setIsAuthenticated(true);
       toast.success(data.message);
       setUser(data.user);
+      if (isAuthenticated)
+        return role === "User" ? (
+          <Navigate to="/"></Navigate>
+        ) : (
+          <Navigate to="/admin"></Navigate>
+        );
     } catch (error) {
       toast.error(error.response.data.message);
       setIsAuthenticated(false);
       setLoading(false);
     }
   };
-  // if (isAuthenticated)
-  //   return role === "User" ? (
-  //     <Navigate to="/"></Navigate>
-  //   ) : (
-  //     <Navigate to="/admin"></Navigate>
-  //   );
   return (
     <div className="d-flex justify-content-center">
       <div
