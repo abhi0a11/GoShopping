@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { Context, server } from "../main";
 import axios from "axios";
 import toast from "react-hot-toast";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import { Link } from "react-scroll";
 import { FaShoppingCart } from "react-icons/fa";
@@ -28,7 +28,7 @@ const Navbar = ({ role }) => {
       });
       localStorage.removeItem("token"); // Clear token from localStorage if used
       sessionStorage.removeItem("token"); // Clear sessionStorage if used
-      window.location.reload(); // Reload the page to reset the state
+
       toast.success("Logged out successfully");
       setIsAuthenticated(false);
       setLoading(false);
