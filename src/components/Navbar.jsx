@@ -26,7 +26,6 @@ const Navbar = ({ role }) => {
       await axios.get(`${server}/api/v1/auth/logout`, {
         withCredentials: true,
       });
-      localStorage.removeItem("token"); // Clear token from localStorage if used
 
       toast.success("Logged out successfully");
       setIsAuthenticated(false);
