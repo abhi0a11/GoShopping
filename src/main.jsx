@@ -7,8 +7,8 @@ import App from "./App.jsx";
 
 export const cloud_server = "https://api.cloudinary.com/v1_1";
 // export const server = "http://localhost:3000";
-// export const server = "https://goshopping-be.onrender.com";
-export const server = "https://neeraj-industries-be.onrender.com";
+export const server = "https://goshopping-be.onrender.com";
+// export const server = "https://neeraj-industries-be.onrender.com";
 
 export const Context = createContext({
   isAuthenticated: false,
