@@ -46,18 +46,54 @@ function App() {
   useEffect(() => {
     (async () => {
       try {
-        const res = await axios.get(`${server}/api/v1/admin/allproducts`, {
-          withCredentials: true,
-        });
+        const res = await axios.get(
+          `${server}/api/v1/admin/allproducts/furniture`,
+          {
+            withCredentials: true,
+          }
+        );
+        console.log(res.data);
+        setFurData(res.data);
+      } catch (error) {
+        toast.error(error.response.data.message);
+      }
+    })();
+    (async () => {
+      try {
+        const res = await axios.get(
+          `${server}/api/v1/admin/allproducts/kitchen-appliances`,
+          {
+            withCredentials: true,
+          }
+        );
+        setKitData(res.data);
+      } catch (error) {
+        toast.error(error.response.data.message);
+      }
+    })();
+    (async () => {
+      try {
+        const res = await axios.get(
+          `${server}/api/v1/admin/allproducts/electronics`,
+          {
+            withCredentials: true,
+          }
+        );
+        setElecData(res.data);
+      } catch (error) {
+        toast.error(error.response.data.message);
+      }
+    })();
+    (async () => {
+      try {
+        const res = await axios.get(
+          `${server}/api/v1/admin/allproducts/decoration`,
+          {
+            withCredentials: true,
+          }
+        );
 
-        let data = res.data.filter(d => d.category === "furniture");
-        setFurData(data);
-        data = res.data.filter(d => d.category === "kitchen-appliances");
-        setKitData(data);
-        data = res.data.filter(d => d.category === "electronics");
-        setElecData(data);
-        data = res.data.filter(d => d.category === "decoration");
-        setDecoData(data);
+        setDecoData(res.data);
       } catch (error) {
         toast.error(error.response.data.message);
       }
