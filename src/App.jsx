@@ -52,7 +52,7 @@ function App() {
             withCredentials: true,
           }
         );
-        console.log(res.data);
+        // console.log(res.data);
         setFurData(res.data);
       } catch (error) {
         toast.error(error.response.data.message);
@@ -99,28 +99,28 @@ function App() {
       }
     })();
   }, []);
-  useEffect(() => {
-    (async () => {
-      setLoading(true);
-      try {
-        console.log("ye le ");
-        const { data } = await axios.get(`${server}/api/v1/auth/me`, {
-          withCredentials: true,
-        });
+  // useEffect(() => {
+  //   (async () => {
+  //     setLoading(true);
+  //     try {
+  //       console.log("ye le ");
+  //       const { data } = await axios.get(`${server}/api/v1/auth/me`, {
+  //         withCredentials: true,
+  //       });
 
-        setLoading(false);
-        setUser(data.user);
-        setIsAuthenticated(true);
-        setRole(data.user.role);
-        setToken(data.token);
-        setCartItemCnt(data?.cart?.length);
-      } catch (error) {
-        setUser({});
-        setLoading(false);
-        setIsAuthenticated(false);
-      }
-    })();
-  }, []);
+  //       setLoading(false);
+  //       setUser(data.user);
+  //       setIsAuthenticated(true);
+  //       setRole(data.user.role);
+  //       setToken(data.token);
+  //       setCartItemCnt(data?.cart?.length);
+  //     } catch (error) {
+  //       setUser({});
+  //       setLoading(false);
+  //       setIsAuthenticated(false);
+  //     }
+  //   })();
+  // }, []);
 
   return (
     <>
