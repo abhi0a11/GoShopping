@@ -1,10 +1,9 @@
-import { StrictMode, useState, createContext, useEffect } from "react";
+import { StrictMode, useState, createContext } from "react";
 import { createRoot } from "react-dom/client";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import App from "./App.jsx";
-import axios from "axios";
 
 export const cloud_server = "https://api.cloudinary.com/v1_1";
 // export const server = "http://localhost:3000";
