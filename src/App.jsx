@@ -100,28 +100,40 @@ function App() {
     })();
   }, []);
   useEffect(() => {
-    const fetchAuthData = () => async () => {
-      setLoading(true);
-      try {
-        console.log("ye le ");
-        const { data } = await axios.get(`${server}/api/v1/auth/me`, {
-          withCredentials: true,
-        });
-
+    axios
+      .get(`${server}/api/v1/auth/me`, {
+        withCredentials: true,
+      })
+      .then(res => {
         setLoading(false);
-        setUser(data.user);
+        setUser(res.data.user);
         setIsAuthenticated(true);
-        setRole(data.user.role);
-        setToken(data.token);
-        setCartItemCnt(data?.cart?.length);
-      } catch (error) {
+        setRole(res.data.user.role);
+        setToken(res.data.token);
+        setCartItemCnt(res?.data?.cart?.length);
+      })
+      .catch(e => {
         setUser({});
         setLoading(false);
         setIsAuthenticated(false);
-      }
-    };
-
-    fetchAuthData();
+      });
+    // try {
+    //   console.log("ye le ");
+    //   const { data } = await axios.get(`${server}/api/v1/auth/me`, {
+    //     withCredentials: true,
+    //   });
+    // setLoading(false);
+    // setUser(data.user);
+    // setIsAuthenticated(true);
+    // setRole(data.user.role);
+    // setToken(data.token);
+    // setCartItemCnt(data?.cart?.length);
+    // } catch (error) {
+    // setUser({});
+    // setLoading(false);
+    // setIsAuthenticated(false);
+    // }
+    // fetchAuthData();
   }, []);
 
   return (
