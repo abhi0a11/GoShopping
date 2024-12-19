@@ -28,7 +28,7 @@ const Navbar = ({ role }) => {
       });
       localStorage.removeItem("token"); // Clear token from localStorage if used
       sessionStorage.removeItem("token"); // Clear sessionStorage if used
-
+      window.location.reload(); // Reload the page to reset the state
       toast.success("Logged out successfully");
       setIsAuthenticated(false);
       setLoading(false);
