@@ -103,6 +103,7 @@ function App() {
     (async () => {
       setLoading(true);
       try {
+        console.log("ye le ");
         const { data } = await axios.get(`${server}/api/v1/auth/me`, {
           withCredentials: true,
         });
