@@ -16,6 +16,8 @@ const Navbar = ({ role }) => {
     cartItemCnt,
     user,
     setCartItemCnt,
+    setUser,
+    setRole,
   } = useContext(Context);
   useEffect(() => {
     setCartItemCnt(user?.cart?.length || 0);
@@ -30,6 +32,8 @@ const Navbar = ({ role }) => {
 
       toast.success("Logged out successfully");
       setIsAuthenticated(false);
+      setUser({});
+      setRole("");
       setLoading(false);
       navigate("/");
     } catch (error) {
