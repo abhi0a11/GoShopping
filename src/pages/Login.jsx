@@ -22,9 +22,6 @@ const Login = () => {
         `${server}/api/v1/auth/login`,
         { email, password, role },
         {
-          headers: {
-            "Content-Type": "application/json",
-          },
           withCredentials: true,
         }
       );
