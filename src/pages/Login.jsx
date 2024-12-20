@@ -24,6 +24,7 @@ const Login = () => {
         {
           headers: {
             "Content-Type": "application/json",
+            "Cache-Control": "no-store",
           },
           withCredentials: true,
         }
