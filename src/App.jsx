@@ -114,6 +114,7 @@ function App() {
       })
       .catch(e => {
         setUser({});
+        setRole("");
         setLoading(false);
         setIsAuthenticated(false);
       });

@@ -29,6 +29,7 @@ const Navbar = ({ role }) => {
         withCredentials: true,
       });
 
+      delete axios.defaults.headers.common["Authorization"];
       toast.success("Logged out successfully");
       setIsAuthenticated(false);
       setUser({});
