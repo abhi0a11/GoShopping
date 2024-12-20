@@ -36,7 +36,7 @@ const Navbar = ({ role }) => {
       setLoading(false);
       navigate("/");
     } catch (error) {
-      toast.error(err.response.data.message);
+      toast.error(error.response.data.message);
       setIsAuthenticated(true);
       setLoading(false);
     }
