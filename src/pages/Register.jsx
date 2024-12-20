@@ -23,6 +23,9 @@ const Register = () => {
         `${server}/api/v1/auth/register`,
         { name, email, password, role },
         {
+          headers: {
+            "Content-Type": "application/json",
+          },
           withCredentials: true,
         }
       );
