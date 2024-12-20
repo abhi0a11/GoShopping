@@ -3,7 +3,6 @@ import "./App.css";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import Services from "./components/Services";
-import Swiper1 from "./components/Swiper1";
 import axios from "axios";
 
 import {
@@ -106,6 +105,7 @@ function App() {
         withCredentials: true,
       })
       .then(res => {
+        console.log("auth", res);
         setLoading(false);
         setUser(res.data.user);
         setIsAuthenticated(true);
@@ -114,6 +114,7 @@ function App() {
         setCartItemCnt(res?.data?.cart?.length);
       })
       .catch(e => {
+        console.log("err", e);
         setUser({});
         setLoading(false);
         setIsAuthenticated(false);
