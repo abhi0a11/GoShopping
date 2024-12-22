@@ -168,6 +168,52 @@ const Navbar = ({ role }) => {
                         Decoration
                       </Link>
                     </li>
+                    {isAuthenticated && (
+                      <li className="nav-item dropdown">
+                        <a
+                          className="nav-link dropdown-toggle"
+                          data-bs-toggle="dropdown"
+                          href="#"
+                          role="button"
+                          aria-expanded="false"
+                        >
+                          Account
+                        </a>
+                        <ul className="dropdown-menu">
+                          <li>
+                            <a className="dropdown-item " href="#">
+                              Welcome{" "}
+                              <span className="text-uppercase">
+                                {user.name}
+                              </span>
+                            </a>
+                          </li>
+                          <li>
+                            <a className="dropdown-item" href="#">
+                              Order History
+                            </a>
+                          </li>
+                          <li>
+                            <a className="dropdown-item" href="#">
+                              Profile
+                            </a>
+                          </li>
+                          {/* <li>
+                            <a className="dropdown-item" href="#">
+                              Wishlist
+                            </a>
+                          </li> */}
+                          {/* <li>
+                            <hr className="dropdown-divider" />
+                          </li>
+                          <li>
+                            <a className="dropdown-item" href="#">
+                              Separated link
+                            </a>
+                          </li> */}
+                        </ul>
+                      </li>
+                    )}
                     <li className="nav-item me-lg-n2 me-xl-0 d-flex">
                       {/* <!-- Button group --> */}
                       <div className="d-flex position-relative">

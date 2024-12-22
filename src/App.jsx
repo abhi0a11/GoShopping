@@ -16,7 +16,7 @@ import Register from "./pages/Register";
 import toast, { Toaster } from "react-hot-toast";
 import { Context, server } from "./main";
 import Admin from "./pages/Admin";
-
+import Swiper1 from "./components/Swiper1.jsx";
 import AllProducsFurniture from "./pages/AllProducsFurniture";
 import AllProducsElectronics from "./pages/AllProducsElectronics";
 import AllProducsDecoration from "./pages/AllProducsDecoration";
@@ -133,13 +133,14 @@ function App() {
               ) : (
                 <>
                   <Navbar role={"User"}></Navbar>
-                  <Services></Services>
+                  <Services Page={1}></Services>
                   {/* <Swiper1 dir={false}></Swiper1> */}
                   <Furniture furData={furData}></Furniture>
                   {/* <Electronics ElecData={ElecData}></Electronics> */}
                   <KitchenAppliances kitData={kitData} />
                   {/* <Swiper1 dir={true}></Swiper1> */}
                   <Decoration decoData={decoData}></Decoration>
+                  <Services Page={2}></Services>
                   <Footer></Footer>
                 </>
               )
