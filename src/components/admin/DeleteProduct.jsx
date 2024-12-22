@@ -7,7 +7,7 @@ import axios from "axios";
 import "./add.css";
 import { Navigate } from "react-router-dom";
 
-const DeleteProduct = () => {
+const DeleteProduct = ({ prod }) => {
   const [name, setName] = useState("");
   const { isAuthenticated, setIsAuthenticated, loading, setLoading } =
     useContext(Context);

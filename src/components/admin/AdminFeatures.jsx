@@ -3,7 +3,7 @@ import Add from "./Add.jsx";
 import "./admin.css";
 import { useState } from "react";
 
-import Search from "./Search.jsx";
+import Search from "./Products.jsx";
 import DeleteProduct from "./DeleteProduct.jsx";
 import AdminHeuristics from "./AdminHeuristics.jsx";
 

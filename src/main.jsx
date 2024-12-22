@@ -6,8 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import App from "./App.jsx";
 
 export const cloud_server = "https://api.cloudinary.com/v1_1";
-// export const server = "http://localhost:3020";
-// export const server = "https://go-shopping-be.vercel.app";
+// export const server = "http://localhost:3000";
 export const server = "https://goshopping-be.onrender.com";
 // export const server = "https://goshopping-be-n9au.onrender.com";
 

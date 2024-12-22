@@ -25,6 +25,7 @@ import Furniture from "./components/products/Furniture";
 import KitchenAppliances from "./components/products/KitchenAppliances";
 import Decoration from "./components/products/Decoration";
 import Cart from "./components/Cart/Cart";
+import AdminNavbar from "./components/AdminNavbar.jsx";
 
 function App() {
   const {
@@ -42,11 +43,12 @@ function App() {
   const [kitData, setKitData] = useState([]);
   const [ElecData, setElecData] = useState([]);
   const [decoData, setDecoData] = useState([]);
+  const [adminService, setAdminService] = useState(3);
   useEffect(() => {
     (async () => {
       try {
         const res = await axios.get(
-          `${server}/api/v1/admin/allproducts/furniture`,
+          `${server}/api/v1/admin/products/furniture`,
           {
             withCredentials: true,
           }
@@ -60,7 +62,7 @@ function App() {
     (async () => {
       try {
         const res = await axios.get(
-          `${server}/api/v1/admin/allproducts/kitchen-appliances`,
+          `${server}/api/v1/admin/products/kitchen-appliances`,
           {
             withCredentials: true,
           }
@@ -73,7 +75,7 @@ function App() {
     (async () => {
       try {
         const res = await axios.get(
-          `${server}/api/v1/admin/allproducts/electronics`,
+          `${server}/api/v1/admin/products/electronics`,
           {
             withCredentials: true,
           }
@@ -86,7 +88,7 @@ function App() {
     (async () => {
       try {
         const res = await axios.get(
-          `${server}/api/v1/admin/allproducts/decoration`,
+          `${server}/api/v1/admin/products/decoration`,
           {
             withCredentials: true,
           }
@@ -173,8 +175,15 @@ function App() {
             element={
               isAuthenticated ? (
                 <>
-                  <Navbar role={"Admin"}></Navbar>
-                  <Admin></Admin>
+                  <article className="d-flex gap-5">
+                    <AdminNavbar
+                      setAdminService={setAdminService}
+                    ></AdminNavbar>
+                    <Admin
+                      setAdminService={setAdminService}
+                      adminService={adminService}
+                    ></Admin>
+                  </article>
                 </>
               ) : (
                 <Navigate to="/login" />

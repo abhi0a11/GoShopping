@@ -6,11 +6,12 @@ import { Context, server } from "../../main";
 import axios from "axios";
 import "./add.css";
 import { uploadFiles } from "../../utils/upload";
+import { MdDelete } from "react-icons/md";
 
-const Update = ({ Name }) => {
-  const [name, setName] = useState(Name);
-  const [price, setPrice] = useState("");
-  const [discount, setDiscount] = useState("");
+const Update = ({ prod }) => {
+  const [name, setName] = useState(prod.name);
+  const [price, setPrice] = useState();
+  const [discount, setDiscount] = useState();
   const [description, setDescription] = useState("");
   const [warranty, setWarranty] = useState("");
   const [color, setColor] = useState("");
@@ -81,7 +82,7 @@ const Update = ({ Name }) => {
       const payload = createPayload(c, w, cl, uploaded_files);
 
       const { data } = await axios.put(
-        `${server}/api/v1/admin/update/${Name}`,
+        `${server}/api/v1/admin/update/${prod.name}`,
         payload,
         {
           withCredentials: true,
@@ -107,12 +108,38 @@ const Update = ({ Name }) => {
     setWood("");
     setStock("");
   };
+  const deleteHandler = async name => {
+    setLoading(true);
+    try {
+      const { data } = await axios.delete(
+        `${server}/api/v1/admin/remove/${name}`,
+        {
+          withCredentials: true,
+        }
+      );
+
+      toast.success(data.message);
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+      error?.response?.data?.auth &&
+        setIsAuthenticated(error.response.data.auth);
+      toast.error(error.response.data.message);
+    }
+    setName("");
+  };
   return (
     <form
-      className="d-flex flex-column w-100 rounded-5"
+      className="d-flex flex-column w-100 rounded-5 add_form"
       onSubmit={submitHandler}
     >
-      <h1 className="head display-6">Enter Updated Product details</h1>
+      <div className="d-flex justify-content-between">
+        <h1 className="head display-6">Enter Updated Product details</h1>
+        <MdDelete
+          style={{ fontSize: "1.5rem", cursor: "pointer" }}
+          onClick={() => deleteHandler(prod.name)}
+        />
+      </div>
       <input
         className="my-2 form_input"
         value={name}

@@ -1,0 +1,12 @@
+.cart_container {
+  width: 100%;
+}
+.txt {
+  font-size: 1.5rem;
+}
+.cart_img {
+  max-width: 5vw;
+  width: 5vw;
+  max-height: 5vw;
+  object-fit: contain;
+}
