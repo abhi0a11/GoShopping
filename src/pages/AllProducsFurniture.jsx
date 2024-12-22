@@ -10,7 +10,7 @@ const AllProducsFurniture = () => {
     const fetchData = async () => {
       try {
         const res = await axios.get(
-          `${server}/api/v1/admin/allproducts/furniture`,
+          `${server}/api/v1/admin/products/furniture`,
           {
             withCredentials: true,
           }
