@@ -62,9 +62,9 @@ const AdminHeuristics = () => {
     >
       <table className="table caption-top table-responsive overflow-scroll">
         <caption>
-          <form class="form-inline">
+          <form className="form-inline">
             <input
-              class="form-control mr-sm-2"
+              className="form-control mr-sm-2"
               type="search"
               placeholder="Search handle of the user"
               aria-label="Search"

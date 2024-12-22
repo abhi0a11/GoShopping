@@ -57,8 +57,8 @@ const CartItem = ({ Item, setTotal, total }) => {
   };
   return (
     <div className={`${styles.cartItem_container}`}>
-      <img src={Item.pictures[0]} alt="" className={`${styles.cart_img}`} />
-      <div className="d-flex justify-content-between w-100">
+      <img src={Item.pictures[0]} alt="Item" className={`${styles.cart_img}`} />
+      <div className="d-flex justify-content-between w-100 ">
         <div className={`${styles.metadata}`}>
           <h6>{Item.name}</h6>
           {Item.stock > 0 ? (
@@ -78,9 +78,9 @@ const CartItem = ({ Item, setTotal, total }) => {
             </button>
           </div>
         </div>
-        <p className={`${styles.metadata} me-3 `}>
+        <div className={`${styles.metadata} me-3 `}>
           <div className={`${styles.pr}`}>&#8377;{Math.round(Item.price)}</div>
-        </p>
+        </div>
       </div>
     </div>
   );

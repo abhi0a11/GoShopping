@@ -3,7 +3,8 @@
   display: flex;
 }
 .cart_img {
-  width: 20%;
+  max-width: 15vw;
+  object-fit: contain;
 }
 .metadata {
   display: flex;
@@ -32,4 +33,22 @@
 h6 {
   margin: 0px;
   font-weight: bold;
+}
+
+@media only screen and (max-width: 992px) {
+  .cart_img {
+    max-width: 26vw;
+    object-fit: contain;
+  }
+  .cartItem_container > div {
+    flex-direction: column;
+  }
+  .txt {
+    padding: 0px !important;
+  }
+  .metadata {
+    padding-left: 1rem;
+    /* align-items: flex-end; */
+    /* text-align: end; */
+  }
 }

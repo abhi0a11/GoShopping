@@ -175,57 +175,69 @@ const Services = () => {
 
       {/*  */}
 
-      <div class="container">
-        <div class="row justify-content-around text-center">
-          <div class="card col" style={{ width: "18rem", background: "#fff" }}>
-            {/* <img class="card-img-top" src="..." alt="Card image cap" /> */}
+      <div className="container">
+        <div className="row justify-content-around text-center">
+          <div
+            className="card col"
+            style={{ width: "18rem", background: "#fff" }}
+          >
+            {/* <img className="card-img-top" src="..." alt="Card image cap" /> */}
             <LiaShippingFastSolid
-              class="card-img-top"
+              className="card-img-top"
               style={{ fontSize: "8rem", padding: "10px", marginTop: "15px" }}
             />
-            <div class="card-body">
-              <h5 class="card-title">Free Shiping</h5>
-              <p class="card-text">
+            <div className="card-body">
+              <h5 className="card-title">Free Shiping</h5>
+              <p className="card-text">
                 Some quick example text to build on the card title and make up
                 the bulk of the card's content.
               </p>
             </div>
           </div>
 
-          <div class="card col" style={{ width: "18rem", background: "#fff" }}>
+          <div
+            className="card col"
+            style={{ width: "18rem", background: "#fff" }}
+          >
             <FaUserShield
-              class="card-img-top"
+              className="card-img-top"
               style={{ fontSize: "7rem", padding: "15px", marginTop: "15px" }}
             />
-            <div class="card-body">
-              <h5 class="card-title">Secure Payments</h5>
-              <p class="card-text">
+            <div className="card-body">
+              <h5 className="card-title">Secure Payments</h5>
+              <p className="card-text">
                 Some quick example text to build on the card title and make up
                 the bulk of the card's content.
               </p>
             </div>
           </div>
-          <div class="card col" style={{ width: "18rem", background: "#fff" }}>
+          <div
+            className="card col"
+            style={{ width: "18rem", background: "#fff" }}
+          >
             <TbTruckReturn
-              class="card-img-top"
+              className="card-img-top"
               style={{ fontSize: "8rem", padding: "10px", marginTop: "15px" }}
             />
-            <div class="card-body">
-              <h5 class="card-title">30 days return</h5>
-              <p class="card-text">
+            <div className="card-body">
+              <h5 className="card-title">30 days return</h5>
+              <p className="card-text">
                 Some quick example text to build on the card title and make up
                 the bulk of the card's content.
               </p>
             </div>
           </div>
-          <div class="card col" style={{ width: "18rem", background: "#fff" }}>
+          <div
+            className="card col"
+            style={{ width: "18rem", background: "#fff" }}
+          >
             <LuPhoneCall
-              class="card-img-top"
+              className="card-img-top"
               style={{ fontSize: "8rem", padding: "15px", marginTop: "15px" }}
             />
-            <div class="card-body">
-              <h5 class="card-title">27/7 support</h5>
-              <p class="card-text">
+            <div className="card-body">
+              <h5 className="card-title">27/7 support</h5>
+              <p className="card-text">
                 Some quick example text to build on the card title and make up
                 the bulk of the card's content.
               </p>

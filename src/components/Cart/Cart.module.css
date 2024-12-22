@@ -18,7 +18,7 @@
   border-bottom: 1px solid #e7e7e7;
 }
 .heading_footer {
-  margin: 5px 0px 15px 0px;
+  margin-top: 1rem;
 }
 .space {
   height: 30px;
@@ -29,4 +29,14 @@
 .pr {
   font-size: 16px;
   font-weight: bold;
+}
+
+@media only screen and (max-width: 992px) {
+  .main_container {
+    flex-direction: column;
+  }
+  .payment_container {
+    width: 100%;
+    margin-top: 10px;
+  }
 }

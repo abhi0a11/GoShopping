@@ -16,6 +16,22 @@ const Cart = () => {
     };
     calculateTotal();
   }, [user]);
+
+  const [width, setWidth] = useState(window.innerWidth);
+  const breakpoint = 992;
+
+  useEffect(() => {
+    window.addEventListener("resize", () => setWidth(window.innerWidth));
+  }, [width]);
+
+  const [top, setTop] = useState();
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      let newTop = window.scrollY;
+      setTop(newTop);
+    });
+  }, []);
   return (
     <>
       <section className={`d-flex ${styles.main_container} container`}>
@@ -24,10 +40,14 @@ const Cart = () => {
             className={`d-flex justify-content-between w-100 ${styles.heading}`}
           >
             <span className={`ms-3 ${styles.txt}`}>Shopping Cart</span>
-            <span className={`ms-3 ${styles.txt}`}>Price</span>
+            {width > breakpoint && (
+              <span className={`ms-3 ${styles.txt}`}>Price</span>
+            )}
           </div>
-          {user?.cart?.map(data => {
-            return <CartItem Item={data} total={total} setTotal={setTotal} />;
+          {user?.cart?.map((data, i) => {
+            return (
+              <CartItem key={i} Item={data} total={total} setTotal={setTotal} />
+            );
           })}
 
           <div
