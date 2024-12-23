@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import Card from "../components/Card";
 
 import axios from "axios";
 import { server } from "../main";
 import toast from "react-hot-toast";
+import Card from "../components/products/Card";
 
 const AllProducsDecoration = () => {
   const [data, setData] = useState([]);

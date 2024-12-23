@@ -1,5 +1,5 @@
 import React from "react";
-import Card from "../components/Card";
+import Card from "../components/products/Card";
 import sofa2 from "../assets/sofa_single.png";
 import sofa3 from "../assets/single_sofa.png";
 import sofa4 from "../assets/sofa_blue.png";

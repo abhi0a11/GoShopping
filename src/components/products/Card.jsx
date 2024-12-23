@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import "./products/products.css";
-import { Context, server } from "../main";
+import "./products.css";
+import { Context, server } from "../../main";
 import axios from "axios";
 import toast from "react-hot-toast";
 

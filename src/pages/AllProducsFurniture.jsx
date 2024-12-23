@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import Card from "../components/Card";
+import Card from "../components/products/Card";
 import { server } from "../main";
 import axios from "axios";
 import toast from "react-hot-toast";

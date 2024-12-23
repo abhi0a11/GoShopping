@@ -7,7 +7,7 @@ import {
 } from "react-icons/bi";
 
 import "./products.css";
-import Card from "../Card";
+import Card from "./Card";
 
 const Decoration = ({ decoData }) => {
   const ScrollRef = useRef(0);

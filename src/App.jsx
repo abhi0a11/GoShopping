@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import "./App.css";
 import Footer from "./components/Footer";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/navbar/Navbar.jsx";
 import Services from "./components/Services";
 import axios from "axios";
 
@@ -16,7 +16,6 @@ import Register from "./pages/Register";
 import toast, { Toaster } from "react-hot-toast";
 import { Context, server } from "./main";
 import Admin from "./pages/Admin";
-import Swiper1 from "./components/Swiper1.jsx";
 import AllProducsFurniture from "./pages/AllProducsFurniture";
 import AllProducsElectronics from "./pages/AllProducsElectronics";
 import AllProducsDecoration from "./pages/AllProducsDecoration";
@@ -25,7 +24,7 @@ import Furniture from "./components/products/Furniture";
 import KitchenAppliances from "./components/products/KitchenAppliances";
 import Decoration from "./components/products/Decoration";
 import Cart from "./components/Cart/Cart";
-import AdminNavbar from "./components/AdminNavbar.jsx";
+import AdminNavbar from "./components/navbar/AdminNavbar.jsx";
 
 function App() {
   const {
@@ -134,7 +133,7 @@ function App() {
                 <Navigate to="/admin" />
               ) : (
                 <>
-                  <Navbar role={"User"}></Navbar>
+                  <Navbar></Navbar>
                   <Services Page={1}></Services>
                   {/* <Swiper1 dir={false}></Swiper1> */}
                   <Furniture furData={furData}></Furniture>
@@ -153,7 +152,7 @@ function App() {
             path="/login"
             element={
               <>
-                <Navbar role={"User"}></Navbar>
+                <Navbar></Navbar>
                 <Login></Login>
               </>
             }
@@ -163,7 +162,7 @@ function App() {
             path="/register"
             element={
               <>
-                <Navbar role={"User"}></Navbar>
+                <Navbar></Navbar>
                 <Register></Register>
               </>
             }
@@ -195,7 +194,7 @@ function App() {
             path="/cart"
             element={
               <>
-                <Navbar role={"User"}></Navbar>
+                <Navbar></Navbar>
                 <Cart />
               </>
             }
@@ -205,7 +204,7 @@ function App() {
             path="/allProductsFurniture"
             element={
               <>
-                <Navbar role={"User"}></Navbar>
+                <Navbar></Navbar>
                 <AllProducsFurniture />
               </>
             }
@@ -215,7 +214,7 @@ function App() {
             path="/allProductsElectronics"
             element={
               <>
-                <Navbar role={"User"}></Navbar>
+                <Navbar></Navbar>
                 <AllProducsElectronics />
               </>
             }
@@ -225,7 +224,7 @@ function App() {
             path="/allProductsDecoration"
             element={
               <>
-                <Navbar role={"User"}></Navbar>
+                <Navbar></Navbar>
                 <AllProducsDecoration />
               </>
             }
@@ -235,7 +234,7 @@ function App() {
             path="/allProductsKitchen"
             element={
               <>
-                <Navbar role={"User"}></Navbar>
+                <Navbar></Navbar>
                 <AllProducsKitchen />
               </>
             }

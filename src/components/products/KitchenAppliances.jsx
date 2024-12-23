@@ -5,7 +5,7 @@ import {
   BiSolidChevronLeftCircle,
 } from "react-icons/bi";
 
-import Card from "../Card";
+import Card from "./Card";
 import "./products.css";
 
 const KitchenAppliances = ({ kitData }) => {
