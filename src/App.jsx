@@ -25,6 +25,7 @@ import KitchenAppliances from "./components/products/KitchenAppliances";
 import Decoration from "./components/products/Decoration";
 import Cart from "./components/Cart/Cart";
 import AdminNavbar from "./components/navbar/AdminNavbar.jsx";
+import OrderHistory from "./components/order/OrderHistory.jsx";
 
 function App() {
   const {
@@ -193,10 +194,14 @@ function App() {
             exact
             path="/cart"
             element={
-              <>
-                <Navbar></Navbar>
-                <Cart />
-              </>
+              isAuthenticated ? (
+                <>
+                  <Navbar></Navbar>
+                  <Cart />
+                </>
+              ) : (
+                <Navigate to="/login" />
+              )
             }
           />
           <Route
@@ -236,6 +241,16 @@ function App() {
               <>
                 <Navbar></Navbar>
                 <AllProducsKitchen />
+              </>
+            }
+          />
+          <Route
+            exact
+            path="/orderHistory"
+            element={
+              <>
+                <Navbar></Navbar>
+                <OrderHistory />
               </>
             }
           />

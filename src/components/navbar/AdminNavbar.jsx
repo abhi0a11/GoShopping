@@ -10,6 +10,7 @@ import { TbLogout2 } from "react-icons/tb";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { Navigate, useNavigate } from "react-router-dom";
+import { Context, server } from "../../main";
 const AdminNavbar = ({ setAdminService }) => {
   const { isAuthenticated, setIsAuthenticated, setUser, setRole, setLoading } =
     useContext(Context);
@@ -29,7 +30,7 @@ const AdminNavbar = ({ setAdminService }) => {
       setLoading(false);
       navigate("/");
     } catch (error) {
-      toast.error(error.response.data.message);
+      toast.error(error.response.data.message || error);
       setIsAuthenticated(true);
       setLoading(false);
     }

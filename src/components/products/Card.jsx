@@ -58,7 +58,7 @@ const Card = ({ entry }) => {
           <button
             className="btn btn-secondary"
             onClick={() => HandleAddToCart()}
-            diabled={loading}
+            diabled={loading.toString()}
           >
             Add to Cart
           </button>
