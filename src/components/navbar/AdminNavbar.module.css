@@ -10,7 +10,7 @@
   margin-bottom: 30px;
   padding: 5px 80px 5px 5px;
 }
-ul {
+.logo > ul {
   list-style-type: none;
   padding: 0;
   display: flex;
