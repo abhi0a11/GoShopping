@@ -248,10 +248,14 @@ function App() {
             exact
             path="/orderHistory"
             element={
-              <>
-                <Navbar></Navbar>
-                <OrderHistory />
-              </>
+              isAuthenticated ? (
+                <>
+                  <Navbar></Navbar>
+                  <OrderHistory />
+                </>
+              ) : (
+                <Navigate to="/login" />
+              )
             }
           />
         </Routes>
