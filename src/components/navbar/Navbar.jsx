@@ -203,9 +203,22 @@ const Navbar = () => {
                         </Link>
                       </li>
                       <li>
-                        <a className="dropdown-item" href="#">
+                        <Link
+                          onClick={() => {
+                            navigate("/profile");
+                          }}
+                          className="nav-link fs-sm text-dark dropdown-item"
+                          to="#"
+                          role="button"
+                          data-bs-toggle="dropdown"
+                          data-bs-trigger="hover"
+                          smooth={true}
+                          offset={-150}
+                          duration={100}
+                          aria-expanded="false"
+                        >
                           Profile
-                        </a>
+                        </Link>
                       </li>
                       {/* <li>
                             <a className="dropdown-item" href="#">

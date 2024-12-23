@@ -1,0 +1,22 @@
+.main_container {
+  width: 100%;
+  display: flex;
+  gap: 30px;
+}
+
+.header_div {
+  border-bottom: 1px solid #ababab;
+  margin: 10px 0px;
+}
+.header_div > span:hover {
+  cursor: pointer;
+}
+.form {
+  display: inline-flex;
+  width: 20vw;
+  gap: 11px;
+  flex-direction: column;
+}
+.form > button {
+  width: fit-content;
+}

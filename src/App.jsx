@@ -26,6 +26,7 @@ import Decoration from "./components/products/Decoration";
 import Cart from "./components/Cart/Cart";
 import AdminNavbar from "./components/navbar/AdminNavbar.jsx";
 import OrderHistory from "./components/order/OrderHistory.jsx";
+import Profile from "./components/admin/Profile.jsx";
 
 function App() {
   const {
@@ -251,11 +252,25 @@ function App() {
               isAuthenticated ? (
                 <>
                   <Navbar></Navbar>
-                  <OrderHistory />
+                  <Profile val={2} />
                 </>
               ) : (
                 <Navigate to="/login" />
               )
+            }
+          />
+          <Route
+            exact
+            path="/profile"
+            element={
+              // isAuthenticated ? (
+              <>
+                <Navbar></Navbar>
+                <Profile val={1} />
+              </>
+              // ) : (
+              //   <Navigate to="/login" />
+              // )
             }
           />
         </Routes>
