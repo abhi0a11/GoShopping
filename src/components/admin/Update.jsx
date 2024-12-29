@@ -141,7 +141,7 @@ const Update = ({ prod }) => {
         />
       </div>
       <input
-        className="my-2 form_input"
+        className="my-2 form_input1"
         value={name}
         onChange={e => setName(e.target.value)}
         type="text"
@@ -149,63 +149,63 @@ const Update = ({ prod }) => {
         disabled={true}
       />
       <input
-        className="my-2 form_input"
+        className="my-2 form_input1"
         value={price}
         onChange={e => setPrice(e.target.value)}
         type="number"
         placeholder="Price*"
       />
       <input
-        className="my-2 form_input"
+        className="my-2 form_input1"
         value={discount}
         onChange={e => setDiscount(e.target.value)}
         type="number"
         placeholder="Discount (optional)"
       />
       <input
-        className="my-2 form_input"
+        className="my-2 form_input1"
         value={description}
         onChange={e => setDescription(e.target.value)}
         type="text"
         placeholder="Description*"
       />
       <input
-        className="my-2 form_input"
+        className="my-2 form_input1"
         value={warranty}
         onChange={e => setWarranty(e.target.value)}
         type="text"
         placeholder="Warranty (optional, eg- 1 year 2 month)"
       />
       <input
-        className="my-2 form_input"
+        className="my-2 form_input1"
         value={wood}
         onChange={e => setWood(e.target.value)}
         type="text"
         placeholder="Wood Material (eg- Oak, neem, sagwan)"
       />
       <input
-        className="my-2 form_input"
+        className="my-2 form_input1"
         value={cloth}
         onChange={e => setCloth(e.target.value)}
         type="text"
         placeholder="Cloth Material"
       />
       <input
-        className="my-2 form_input"
+        className="my-2 form_input1"
         value={color}
         onChange={e => setColor(e.target.value)}
         type="text"
         placeholder="Color (eg- red, greem, blue)"
       />
       <input
-        className="my-2 form_input"
+        className="my-2 form_input1"
         value={stock}
         onChange={e => setStock(e.target.value)}
         type="number"
         placeholder="Stock"
       />
       <input
-        className="my-2 form_input"
+        className="my-2 form_input1"
         onChange={filesHandler}
         required
         multiple
@@ -218,7 +218,7 @@ const Update = ({ prod }) => {
         id="Category"
         value={category}
         onChange={e => setCategory(e.target.value)}
-        className="my-2 form_input"
+        className="my-2 form_input1"
         disabled={true}
       >
         <option value="furniture">Furniture</option>

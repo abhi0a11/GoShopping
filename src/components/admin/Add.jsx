@@ -114,7 +114,7 @@ const Add = () => {
     >
       <h1 className="head display-6">Enter your Product details</h1>
       <input
-        className="my-2 form_input"
+        className="my-2 form_input1"
         value={name}
         onChange={e => setName(e.target.value)}
         type="text"
@@ -122,7 +122,7 @@ const Add = () => {
         required
       />
       <input
-        className="my-2 form_input"
+        className="my-2 form_input1"
         value={price}
         onChange={e => setPrice(e.target.value)}
         type="number"
@@ -130,14 +130,14 @@ const Add = () => {
         required
       />
       <input
-        className="my-2 form_input"
+        className="my-2 form_input1"
         value={discount}
         onChange={e => setDiscount(e.target.value)}
         type="number"
         placeholder="Discount (optional in percentage)"
       />
       <input
-        className="my-2 form_input"
+        className="my-2 form_input1"
         value={description}
         onChange={e => setDescription(e.target.value)}
         type="text"
@@ -145,42 +145,42 @@ const Add = () => {
         required
       />
       <input
-        className="my-2 form_input"
+        className="my-2 form_input1"
         value={warranty}
         onChange={e => setWarranty(e.target.value)}
         type="text"
         placeholder="Warranty (optional, eg- 1 year 2 month)"
       />
       <input
-        className="my-2 form_input"
+        className="my-2 form_input1"
         value={wood}
         onChange={e => setWood(e.target.value)}
         type="text"
         placeholder="Wood Material (eg- Oak, neem, sagwan)"
       />
       <input
-        className="my-2 form_input"
+        className="my-2 form_input1"
         value={cloth}
         onChange={e => setCloth(e.target.value)}
         type="text"
         placeholder="Cloth Material"
       />
       <input
-        className="my-2 form_input"
+        className="my-2 form_input1"
         value={color}
         onChange={e => setColor(e.target.value)}
         type="text"
         placeholder="Color (eg- red, greem, blue)"
       />
       <input
-        className="my-2 form_input"
+        className="my-2 form_input1"
         value={stock}
         onChange={e => setStock(e.target.value)}
         type="number"
         placeholder="stock available"
       />
       <input
-        className="my-2 form_input"
+        className="my-2 form_input1"
         onChange={filesHandler}
         required
         multiple
@@ -193,7 +193,7 @@ const Add = () => {
         id="Category"
         value={category}
         onChange={e => setCategory(e.target.value)}
-        className="my-2 form_input"
+        className="my-2 form_input1"
       >
         <option value="furniture">Furniture</option>
         <option value="kitchen-appliances">Kitchen Appliances</option>

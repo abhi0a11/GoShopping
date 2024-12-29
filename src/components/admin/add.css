@@ -12,11 +12,10 @@
 .add_form > div {
   margin-top: 200px;
 }
-.form_input {
-  /* height: 50px; */
+.form_input1 {
+  width: 45rem;
   font-size: 15px;
   padding: 10px;
-  border-radius: 5px;
   /* border: 1px solid #e7e7e7; */
 }
 .form_btn {
