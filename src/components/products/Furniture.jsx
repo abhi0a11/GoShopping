@@ -18,7 +18,7 @@ const Furniture = ({ furData }) => {
   };
   return (
     <div className="main_cont" id="furniture" style={{ marginTop: "36px" }}>
-      <div className="d-flex justify-content-between">
+      {/* <div className="d-flex justify-content-between">
         <h3 className="mx-5 mb-3" style={{ padding: "20px 0px 0px 0px" }}>
           Furniture{" "}
         </h3>
@@ -30,9 +30,9 @@ const Furniture = ({ furData }) => {
           see all
           <FaAngleRight />
         </a>{" "}
-      </div>
-      <section className="d-flex position-relative mx-5 pb-xxl-3 overflow-hidden">
-        <button
+      </div> */}
+      <section className="d-flex position-relative pb-xxl-3 flex-wrap card_box_div container">
+        {/* <button
           className="position-absolute top-50 start-0 z-2 translate-middle mt-n5 d-none d-sm-inline-flex rounded-circle"
           style={{ marginLeft: "24px", border: "none" }}
           onClick={() => handleScrollLeft(400)}
@@ -51,12 +51,15 @@ const Furniture = ({ furData }) => {
             className="display-5"
             style={{ background: "transparent" }}
           />
-        </button>
-        <div className="d-flex scroll_container" ref={ScrollRef}>
-          {furData.map((entry, i) => (
-            <Card key={i} entry={entry}></Card>
-          ))}
-        </div>
+        </button> */}
+        {/* <div
+          className="d-flex flex-wrap justify-content-center"
+          ref={ScrollRef}
+        > */}
+        {furData.map((entry, i) => (
+          <Card key={i} entry={entry}></Card>
+        ))}
+        {/* </div> */}
       </section>
     </div>
   );

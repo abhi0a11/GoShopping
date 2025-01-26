@@ -1,0 +1,16 @@
+.image_ {
+  height: 70vh;
+  max-height: max-content;
+  width: fit-content;
+  max-width: 40vw;
+  flex-grow: 200;
+  border-radius: 40px;
+  object-position: top;
+}
+.image_gallery_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 150px;
+  margin-bottom: 150px;
+}

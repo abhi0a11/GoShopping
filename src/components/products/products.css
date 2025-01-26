@@ -1,6 +1,3 @@
-.main_cont {
-  background: white;
-}
 .scroll_container {
   overflow-x: scroll;
   scroll-behavior: smooth;
@@ -11,7 +8,7 @@
   width: 300px;
   border: none;
   margin: 15px 10px;
-  background: #f6f6f6;
+  background: white;
 }
 .more_btn {
   font-size: 16px;

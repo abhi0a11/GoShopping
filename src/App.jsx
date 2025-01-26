@@ -27,6 +27,8 @@ import Cart from "./components/Cart/Cart";
 import AdminNavbar from "./components/navbar/AdminNavbar.jsx";
 import OrderHistory from "./components/order/OrderHistory.jsx";
 import Profile from "./components/admin/Profile.jsx";
+import LandingPage from "./components/LandingPage.jsx";
+import ImageGallery from "./components/ImageGallery.jsx";
 
 function App() {
   const {
@@ -136,13 +138,15 @@ function App() {
               ) : (
                 <>
                   <Navbar></Navbar>
+                  <LandingPage></LandingPage>
                   <Services Page={1}></Services>
+                  <ImageGallery></ImageGallery>
                   {/* <Swiper1 dir={false}></Swiper1> */}
                   <Furniture furData={furData}></Furniture>
                   {/* <Electronics ElecData={ElecData}></Electronics> */}
-                  <KitchenAppliances kitData={kitData} />
+                  {/* <KitchenAppliances kitData={kitData} /> */}
                   {/* <Swiper1 dir={true}></Swiper1> */}
-                  <Decoration decoData={decoData}></Decoration>
+                  {/* <Decoration decoData={decoData}></Decoration> */}
                   <Services Page={2}></Services>
                   <Footer></Footer>
                 </>
