@@ -1,7 +1,7 @@
 .image_ {
   height: 70vh;
   max-height: max-content;
-  width: fit-content;
+  width: 24rem;
   max-width: 40vw;
   flex-grow: 200;
   border-radius: 40px;
