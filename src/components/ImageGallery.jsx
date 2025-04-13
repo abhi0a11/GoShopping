@@ -32,14 +32,14 @@ const ImageGallery = () => {
       <img className={`${styles.image_}`} src={sofa4} alt="" />
       <img className={`${styles.image_}`} src={sofa15} alt="" />
       <img className={`${styles.image_}`} src={sofa16} alt="" />
-      <img className={`${styles.image_}`} src={sofa17} alt="" />
-      <img className={`${styles.image_}`} src={sofa18} alt="" />
+{/*       <img className={`${styles.image_}`} src={sofa17} alt="" /> */}
+{/*       <img className={`${styles.image_}`} src={sofa18} alt="" />
       <img className={`${styles.image_}`} src={sofa19} alt="" />
       <img className={`${styles.image_}`} src={sofa20} alt="" />
       <img className={`${styles.image_}`} src={sofa21} alt="" />
       <img className={`${styles.image_}`} src={sofa22} alt="" />
       <img className={`${styles.image_}`} src={sofa2} alt="" />
-      <img className={`${styles.image_}`} src={sofa5} alt="" />
+      <img className={`${styles.image_}`} src={sofa5} alt="" /> */}
     </div>
   );
 };
